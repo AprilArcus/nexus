@@ -1,19 +1,38 @@
 import { makeAddPgTableOrderByPlugin, orderByAscDesc } from "graphile-utils";
+import type { SQL } from "pg-sql2";
 
 export default makeAddPgTableOrderByPlugin(
-  "app_public",
-  "organization_memberships",
-  ({ pgSql: sql }) => {
-    const sqlIdentifier = sql.identifier(Symbol("member"));
-    return orderByAscDesc(
-      "MEMBER_NAME",
-      // @ts-ignore
-      ({ queryBuilder }) => sql.fragment`(
-        select ${sqlIdentifier}.name
-        from app_public.users as ${sqlIdentifier}
-        where ${sqlIdentifier}.id = ${queryBuilder.getTableAlias()}.user_id
-        limit 1
-      )`
+  { schemaName: "app_public", tableName: "organization_memberships" },
+  (build) => {
+    const {
+      sql,
+      input: {
+        pgRegistry: { pgResources },
+      },
+    } = build;
+    const usersResource = Object.values(pgResources).find(
+      (s) =>
+        !s.parameters &&
+        s.extensions?.pg?.schemaName === "app_public" &&
+        s.extensions.pg.name === "users"
     );
+    if (!usersResource) {
+      throw new Error(`Couldn't find the source for app_public.users`);
+    }
+    const sqlIdentifier = sql.identifier(Symbol("member"));
+    return orderByAscDesc("MEMBER_NAME", ($organizationMemberships) => {
+      $organizationMemberships.join({
+        type: "inner",
+        from: usersResource.from as SQL,
+        alias: sqlIdentifier,
+        conditions: [
+          sql`${sqlIdentifier}.id = ${$organizationMemberships.alias}.user_id`,
+        ],
+      });
+      return {
+        fragment: sql`${sqlIdentifier}.name`,
+        codec: usersResource.codec.attributes!["name"].codec,
+      };
+    });
   }
 );
