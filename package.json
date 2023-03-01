@@ -39,7 +39,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "graphql": "^15.8.0"
+    "graphql": "^16.1.0-experimental-stream-defer.6"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -73,7 +73,6 @@
     "mock-res": "^0.6.0",
     "node-fetch": "^3.3.1",
     "nodemon": "^2.0.20",
-    "pg": "^8.9.0",
     "prettier": "^3.1.1",
     "rimraf": "^4.1.2",
     "ts-jest": "^29.0.5",
@@ -83,7 +82,7 @@
     "update-dotenv": "^1.1.1"
   },
   "resolutions": {
-    "graphql": "15.x",
+    "graphql": "16.1.0-experimental-stream-defer.6",
     "pg-connection-string": "2.x"
   },
   "workspaces": {
