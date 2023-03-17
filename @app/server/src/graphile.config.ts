@@ -60,7 +60,7 @@ function uuidOrNull(input: string | number | null | undefined): UUID | null {
 
 interface IPostGraphileOptionsOptions {
   authPgPool: Pool;
-  rootPgPool: Pool;
+  rootPgPool?: Pool;
 }
 
 const isTest = process.env.NODE_ENV === "test";
@@ -222,7 +222,7 @@ export function getPreset({
           const sessionId = uuidOrNull(req.user?.session_id);
           if (sessionId) {
             // Update the last_active timestamp (but only do it at most once every 15 seconds to avoid too much churn).
-            await rootPgPool.query(
+            await rootPgPool?.query(
               "UPDATE app_private.sessions SET last_active = NOW() WHERE uuid = $1 AND last_active < NOW() - INTERVAL '15 seconds'",
               [sessionId]
             );
