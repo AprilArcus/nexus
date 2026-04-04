@@ -80,8 +80,8 @@ export async function makeApp({
       process.env.TRUST_PROXY === "1"
         ? true
         : process.env.TRUST_PROXY === "cloudflare"
-        ? ["loopback", "linklocal", "uniquelocal", ...cloudflareIps]
-        : process.env.TRUST_PROXY.split(",")
+          ? ["loopback", "linklocal", "uniquelocal", ...cloudflareIps]
+          : process.env.TRUST_PROXY.split(",")
     );
   }
 

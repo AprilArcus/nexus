@@ -1,5 +1,7 @@
 import { Express } from "express";
-import type { HelmetOptions } from "helmet" assert { "resolution-mode": "import" };
+import type { HelmetOptions } from "helmet" with {
+  "resolution-mode": "import",
+};
 
 // Appease TypeScript
 type HelmetOptionsWithCSP = HelmetOptions & {
