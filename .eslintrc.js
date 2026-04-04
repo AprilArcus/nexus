@@ -86,11 +86,20 @@ module.exports = {
     },
   },
   settings: {
-    react: {
-      version: "detect",
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "@app/*/tsconfig.json",
+      },
     },
     next: {
       rootDir: "@app/client/",
+    },
+    react: {
+      version: "detect",
     },
   },
   env: {
@@ -160,6 +169,7 @@ module.exports = {
     "sort-imports": "off",
     "import/order": "off",
 
+    "import/namespace": "off", // TypeScript's `export import X = require()` pattern causes false positives
     "import/no-deprecated": "warn",
     "import/no-duplicates": "error",
   },
