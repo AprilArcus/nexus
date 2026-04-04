@@ -1,6 +1,3 @@
-const { readFileSync } = require("fs");
-const schemaString = readFileSync(`${__dirname}/data/schema.graphql`, "utf8");
-
 module.exports = {
   parser: "@typescript-eslint/parser",
   extends: [
@@ -13,7 +10,7 @@ module.exports = {
     "jest",
     "@typescript-eslint",
     "react",
-    "graphql",
+    "@graphql-eslint",
     "simple-import-sort",
     "import",
   ],
@@ -30,6 +27,55 @@ module.exports = {
       extends: [
         "next", // which itself extends plugin:react-hooks/recommended
       ],
+    },
+    {
+      // Extract and lint GraphQL from template literals in client code.
+      // Server is excluded because it defines the schema, not operations.
+      files: ["**/*.{ts,tsx,js,jsx}"],
+      excludedFiles: ["@app/server/src/**"],
+      processor: "@graphql-eslint/graphql",
+    },
+    {
+      files: ["**/*.graphql"],
+      parser: "@graphql-eslint/eslint-plugin",
+      parserOptions: {
+        schema: "./data/schema.graphql",
+        operations: "./@app/**/*.graphql",
+      },
+      rules: {
+        "@graphql-eslint/executable-definitions": "error",
+        "@graphql-eslint/fields-on-correct-type": "error",
+        "@graphql-eslint/fragments-on-composite-type": "error",
+        "@graphql-eslint/known-argument-names": "error",
+        "@graphql-eslint/known-directives": "error", // disabled by default in relay
+        // "@graphql-eslint/known-fragment-names": "error", // disabled by default in all envs
+        "@graphql-eslint/known-type-names": "error",
+        "@graphql-eslint/lone-anonymous-operation": "error",
+        "@graphql-eslint/no-anonymous-operations": "error",
+        "@graphql-eslint/no-fragment-cycles": "error",
+        "@graphql-eslint/no-undefined-variables": "error", // disabled by default in relay
+        // "@graphql-eslint/no-unused-fragments": "error", // disabled by default in all envs
+        // "@graphql-eslint/no-unused-variables": "error", // throws even when fragments use the variable
+        "@graphql-eslint/one-field-subscriptions": "error",
+        "@graphql-eslint/overlapping-fields-can-be-merged": "error",
+        "@graphql-eslint/possible-fragment-spread": "error",
+        "@graphql-eslint/provided-required-arguments": "error", // disabled by default in relay
+        "@graphql-eslint/require-id-when-available": [
+          "error",
+          { fieldName: ["id", "nodeId"] },
+        ],
+        "@graphql-eslint/scalar-leafs": "error", // disabled by default in relay
+        "@graphql-eslint/unique-argument-names": "error",
+        "@graphql-eslint/unique-directive-names-per-location": "error",
+        "@graphql-eslint/unique-fragment-name": "error",
+        "@graphql-eslint/unique-input-field-names": "error",
+        "@graphql-eslint/unique-operation-name": "error",
+        "@graphql-eslint/unique-variable-names": "error",
+        "@graphql-eslint/value-literals-of-correct-type": "error",
+        "@graphql-eslint/variables-are-input-types": "error",
+        // "@graphql-eslint/variables-default-value-allowed": "error",
+        "@graphql-eslint/variables-in-allowed-position": "error",
+      },
     },
   ],
   parserOptions: {
@@ -100,56 +146,6 @@ module.exports = {
 
     "import/no-extraneous-dependencies": 0,
 
-    "graphql/template-strings": [
-      "error",
-      {
-        env: "literal",
-        schemaString,
-        validators: [
-          "ExecutableDefinitionsRule",
-          "FieldsOnCorrectTypeRule",
-          "FragmentsOnCompositeTypesRule",
-          "KnownArgumentNamesRule",
-          "KnownDirectivesRule", // disabled by default in relay
-          // "KnownFragmentNamesRule", // disabled by default in all envs
-          "KnownTypeNamesRule",
-          "LoneAnonymousOperationRule",
-          "NoFragmentCyclesRule",
-          "NoUndefinedVariablesRule", //disabled by default in relay
-          // "NoUnusedFragmentsRule" // disabled by default in all envs
-          // "NoUnusedVariablesRule" throws even when fragments use the variable
-          "OverlappingFieldsCanBeMergedRule",
-          "PossibleFragmentSpreadsRule",
-          "ProvidedRequiredArgumentsRule", // disabled by default in relay
-          "ScalarLeafsRule", // disabled by default in relay
-          "SingleFieldSubscriptionsRule",
-          "UniqueArgumentNamesRule",
-          "UniqueDirectivesPerLocationRule",
-          "UniqueFragmentNamesRule",
-          "UniqueInputFieldNamesRule",
-          "UniqueOperationNamesRule",
-          "UniqueVariableNamesRule",
-          "ValuesOfCorrectTypeRule",
-          "VariablesAreInputTypesRule",
-          // "VariablesDefaultValueAllowedRule",
-          "VariablesInAllowedPositionRule",
-        ],
-      },
-    ],
-    "graphql/named-operations": [
-      "error",
-      {
-        schemaString,
-      },
-    ],
-    "graphql/required-fields": [
-      "error",
-      {
-        env: "literal",
-        schemaString,
-        requiredFields: ["nodeId", "id"],
-      },
-    ],
     "react/destructuring-assignment": 0,
 
     "arrow-body-style": 0,
