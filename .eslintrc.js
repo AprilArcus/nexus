@@ -12,7 +12,6 @@ module.exports = {
   plugins: [
     "jest",
     "@typescript-eslint",
-    "react-hooks",
     "react",
     "graphql",
     "simple-import-sort",
@@ -28,7 +27,9 @@ module.exports = {
     },
     {
       files: ["@app/client/**", "@app/components/**"],
-      extends: ["next"],
+      extends: [
+        "next", // which itself extends plugin:react-hooks/recommended
+      ],
     },
   ],
   parserOptions: {
