@@ -13,7 +13,7 @@ type GraphileHelpers = any;
 type AugmentedGraphQLFieldResolver<
   TSource,
   TContext,
-  TArgs = { [argName: string]: any }
+  TArgs = { [argName: string]: any },
 > = (
   parent: TSource,
   args: TArgs,
