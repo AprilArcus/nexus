@@ -34,11 +34,6 @@ function currentUserTopicByUserId(userId: string | null) {
  * And see the database trigger function `app_public.tg__graphql_subscription()`.
  */
 const SubscriptionsPlugin = extendSchema((build) => {
-  const currentUserIdResource =
-    build.input.pgRegistry.pgResources.current_user_id;
-  if (!currentUserIdResource) {
-    throw new Error("Couldn't find current_user_id source");
-  }
   const usersResource = Object.values(build.input.pgRegistry.pgResources).find(
     (s) =>
       !s.parameters &&
@@ -69,9 +64,9 @@ const SubscriptionsPlugin = extendSchema((build) => {
           currentUserUpdated: {
             subscribePlan() {
               const $pgSubscriber = context().get("pgSubscriber");
-              // We have the users session ID, but to get their actual ID we need to ask the database.
-              const $userId =
-                currentUserIdResource.execute() as ExecutableStep<string>;
+              const $userId = context().get("userId") as ExecutableStep<
+                string | null
+              >;
               const $topic = lambda($userId, currentUserTopicByUserId);
               return listen($pgSubscriber, $topic, (e) => e);
             },
