@@ -12,5 +12,8 @@ module.exports = (dir) => {
 
     rootDir: dir,
     displayName: package.name,
+    // Prettier 3 removed sync APIs; Jest 29 uses them for inline snapshot
+    // formatting. Disable Prettier formatting until Jest is upgraded.
+    prettierPath: null,
   };
 };
