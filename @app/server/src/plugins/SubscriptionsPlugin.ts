@@ -63,26 +63,30 @@ const SubscriptionsPlugin = extendSchema((build) => {
         currentUserUpdated: UserSubscriptionPayload
       }
     `,
-    plans: {
+    objects: {
       Subscription: {
-        currentUserUpdated: {
-          subscribePlan() {
-            const $pgSubscriber = context().get("pgSubscriber");
-            // We have the users session ID, but to get their actual ID we need to ask the database.
-            const $userId =
-              currentUserIdResource.execute() as ExecutableStep<string>;
-            const $topic = lambda($userId, currentUserTopicByUserId);
-            return listen($pgSubscriber, $topic, (e) => e);
-          },
-          plan($e) {
-            return jsonParse<TgGraphQLSubscriptionPayload & JSONValue>($e);
+        plans: {
+          currentUserUpdated: {
+            subscribePlan() {
+              const $pgSubscriber = context().get("pgSubscriber");
+              // We have the users session ID, but to get their actual ID we need to ask the database.
+              const $userId =
+                currentUserIdResource.execute() as ExecutableStep<string>;
+              const $topic = lambda($userId, currentUserTopicByUserId);
+              return listen($pgSubscriber, $topic, (e) => e);
+            },
+            plan($e) {
+              return jsonParse<TgGraphQLSubscriptionPayload & JSONValue>($e);
+            },
           },
         },
       },
       UserSubscriptionPayload: {
-        user($obj: ExecutableStep<TgGraphQLSubscriptionPayload>) {
-          const $id = access($obj, "subject");
-          return usersResource.get({ id: $id });
+        plans: {
+          user($obj: ExecutableStep<TgGraphQLSubscriptionPayload>) {
+            const $id = access($obj, "subject");
+            return usersResource.get({ id: $id });
+          },
         },
       },
     },

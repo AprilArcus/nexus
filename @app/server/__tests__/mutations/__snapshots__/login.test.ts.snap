@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login returns the authenticated user on LoginPayload.user 2`] = `
+{
+  "data": {
+    "login": {
+      "user": {
+        "id": "[id-1]",
+        "name": "User a",
+        "username": "[username-1]",
+      },
+    },
+  },
+}
+`;
