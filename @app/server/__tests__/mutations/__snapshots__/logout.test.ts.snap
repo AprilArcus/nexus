@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logout succeeds and deletes the session 1`] = `
+{
+  "data": {
+    "logout": {
+      "success": true,
+    },
+  },
+}
+`;
