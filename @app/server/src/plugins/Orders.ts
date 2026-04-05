@@ -1,7 +1,7 @@
-import { makeAddPgTableOrderByPlugin, orderByAscDesc } from "graphile-utils";
+import { addPgTableOrderBy, orderByAscDesc } from "graphile-utils";
 import type { SQL } from "pg-sql2";
 
-export default makeAddPgTableOrderByPlugin(
+export default addPgTableOrderBy(
   { schemaName: "app_public", tableName: "organization_memberships" },
   (build) => {
     const {
