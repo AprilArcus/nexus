@@ -1,11 +1,11 @@
 import type { ExecutableStep } from "grafast";
 import { access } from "grafast";
 import type { ObjectResolver } from "graphile-utils";
-import { gql, makeExtendSchemaPlugin } from "graphile-utils";
+import { extendSchema, gql } from "graphile-utils";
 
 import { ERROR_MESSAGE_OVERRIDES } from "../utils/handleErrors";
 
-const PassportLoginPlugin = makeExtendSchemaPlugin((build) => {
+const PassportLoginPlugin = extendSchema((build) => {
   const typeDefs = gql`
     input RegisterInput {
       username: String!
@@ -95,18 +95,22 @@ const PassportLoginPlugin = makeExtendSchemaPlugin((build) => {
       "Couldn't find either the 'users' or 'current_user_id' source"
     );
   }
-  const plans = {
+  const objects = {
     RegisterPayload: {
-      user($obj: ExecutableStep<{ userId: number }>) {
-        const $userId = access($obj, "userId");
-        return userResource.get({ id: $userId });
+      plans: {
+        user($obj: ExecutableStep<{ userId: number }>) {
+          const $userId = access($obj, "userId");
+          return userResource.get({ id: $userId });
+        },
       },
     },
     LoginPayload: {
-      user() {
-        const $userId =
-          currentUserIdResource.execute() as ExecutableStep<string>;
-        return userResource.get({ id: $userId });
+      plans: {
+        user() {
+          const $userId =
+            currentUserIdResource.execute() as ExecutableStep<string>;
+          return userResource.get({ id: $userId });
+        },
       },
     },
   };
@@ -258,7 +262,7 @@ const PassportLoginPlugin = makeExtendSchemaPlugin((build) => {
   };
   return {
     typeDefs,
-    plans,
+    objects,
     resolvers,
   };
 });
