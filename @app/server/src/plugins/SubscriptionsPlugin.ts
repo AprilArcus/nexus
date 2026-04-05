@@ -2,7 +2,7 @@ import type { JSONValue } from "@dataplan/json";
 import { jsonParse } from "@dataplan/json";
 import type { ExecutableStep } from "grafast";
 import { access, context, lambda, listen, SafeError } from "grafast";
-import { gql, makeExtendSchemaPlugin } from "graphile-utils";
+import { extendSchema, gql } from "graphile-utils";
 
 /*
  * PG NOTIFY events are sent via a channel, this function helps us determine
@@ -33,7 +33,7 @@ function currentUserTopicByUserId(userId: string | null) {
  *
  * And see the database trigger function `app_public.tg__graphql_subscription()`.
  */
-const SubscriptionsPlugin = makeExtendSchemaPlugin((build) => {
+const SubscriptionsPlugin = extendSchema((build) => {
   const currentUserIdResource =
     build.input.pgRegistry.pgResources.current_user_id;
   if (!currentUserIdResource) {
