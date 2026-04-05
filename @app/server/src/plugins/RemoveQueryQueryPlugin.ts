@@ -1,5 +1,3 @@
-import type { GraphileConfig } from "postgraphile";
-
 const RemoveQueryQueryPlugin: GraphileConfig.Plugin = {
   name: "RemoveQueryQueryPlugin",
   version: "0.0.0",
