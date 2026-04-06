@@ -39,7 +39,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "graphql": "^16.1.0-experimental-stream-defer.6"
+    "graphql": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -82,8 +82,21 @@
     "update-dotenv": "^1.1.1"
   },
   "resolutions": {
-    "graphql": "16.1.0-experimental-stream-defer.6",
-    "pg-connection-string": "2.x"
+    "graphql": "16.9.0",
+    "pg-connection-string": "2.x",
+    "@dataplan/json": "1.0.0-rc.1",
+    "@dataplan/pg": "1.0.0-rc.1",
+    "@graphile/lru": "5.0.0-rc.1",
+    "@graphile/simplify-inflection": "8.0.0-rc.1",
+    "grafast": "1.0.0-rc.1",
+    "grafserv": "1.0.0-rc.1",
+    "graphile-build": "5.0.0-rc.1",
+    "graphile-build-pg": "5.0.0-rc.1",
+    "graphile-config": "1.0.0-rc.1",
+    "graphile-utils": "5.0.0-rc.1",
+    "pg-sql2": "5.0.0-rc.1",
+    "postgraphile": "5.0.0-rc.1",
+    "tamedevil": "0.1.0-rc.1"
   },
   "workspaces": {
     "packages": [
