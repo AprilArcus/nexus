@@ -39,7 +39,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "graphql": "^16.1.0-experimental-stream-defer.6"
+    "graphql": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -82,8 +82,32 @@
     "update-dotenv": "^1.1.1"
   },
   "resolutions": {
-    "graphql": "16.1.0-experimental-stream-defer.6",
-    "pg-connection-string": "2.x"
+    "graphql": "16.9.0",
+    "pg-connection-string": "2.x",
+    "@dataplan/json": "1.0.0-rc.2",
+    "@dataplan/pg": "1.0.0-rc.2",
+    "@grafserv/persisted": "1.0.0-rc.2",
+    "@graphile/lru": "5.0.0-rc.2",
+    "@graphile/simplify-inflection": "8.0.0-rc.2",
+    "eslint-plugin-graphile-export": "1.0.0-rc.2",
+    "grafast": "1.0.0-rc.3",
+    "grafserv": "1.0.0-rc.3",
+    "graphile-build-pg": "5.0.0-rc.2",
+    "graphile-build": "5.0.0-rc.2",
+    "graphile-config": "1.0.0-rc.2",
+    "graphile-export": "1.0.0-rc.2",
+    "graphile-utils": "5.0.0-rc.2",
+    "graphile": "5.0.0-rc.2",
+    "graphql-codegen-grafast": "1.0.0-rc.2",
+    "jest-serializer-graphql-schema": "5.0.0-rc.2",
+    "jest-serializer-simple": "5.0.0-rc.2",
+    "pg-introspection": "1.0.0-rc.2",
+    "pg-sql2": "5.0.0-rc.2",
+    "pgl": "5.0.0-rc.3",
+    "postgraphile": "5.0.0-rc.3",
+    "ruru-components": "2.0.0-rc.3",
+    "ruru": "2.0.0-rc.3",
+    "tamedevil": "0.1.0-rc.2"
   },
   "workspaces": {
     "packages": [

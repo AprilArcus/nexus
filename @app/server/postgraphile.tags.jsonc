@@ -72,6 +72,20 @@
            */
           "omit": "all"
         },
+        "attribute": {
+          "email": {
+            "tags": {
+              /*
+               * PostGraphile 5 relaxed its threshold for treating a column
+               * as "indexed", which caused `email` to appear in filter
+               * conditions and ordering enums despite having no index. We
+               * suppress it here to avoid exposing unindexed sort/filter paths
+               * that would result in full table scans.
+               */
+              "behavior": "-filterBy -orderBy"
+            }
+          }
+        },
         "constraint": {
           "user_emails_pkey": {
             "tags": {
@@ -95,6 +109,18 @@
           "details": {
             "tags": {
               "omit": true
+            }
+          },
+          "identifier": {
+            "tags": {
+              /*
+               * PostGraphile 5 relaxed its threshold for treating a column
+               * as "indexed", which caused `identifier` to appear in filter
+               * conditions and ordering enums despite having no index. We
+               * suppress it here to avoid exposing unindexed sort/filter paths
+               * that would result in full table scans.
+               */
+              "behavior": "-filterBy -orderBy"
             }
           }
         },

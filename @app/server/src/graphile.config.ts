@@ -6,7 +6,7 @@ import { Pool } from "pg";
 import { makePgService } from "postgraphile/adaptors/pg";
 import type {} from "postgraphile/grafserv/express/v4";
 import { NodePlugin } from "postgraphile/graphile-build";
-import postgraphilePresetAmber from "postgraphile/presets/amber";
+import PostGraphileAmberPreset from "postgraphile/presets/amber";
 import { makeV4Preset } from "postgraphile/presets/v4";
 import { pgSmartTagsFromFile } from "postgraphile/utils";
 
@@ -87,7 +87,7 @@ export function getPreset({
     ],
 
     extends: [
-      postgraphilePresetAmber,
+      PostGraphileAmberPreset,
 
       makeV4Preset({
         // On production we still want to start even if the database isn't available.
