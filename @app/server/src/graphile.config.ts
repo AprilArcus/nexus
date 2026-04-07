@@ -21,7 +21,6 @@ declare global {
   namespace Grafast {
     interface Context {
       sessionId: string | null;
-      userId: string | null;
       rootPgPool: Pool;
       login(user: any): Promise<void>;
       logout(): Promise<void>;
@@ -249,25 +248,9 @@ export function getPreset({
          */
         async additionalGraphQLContextFromRequest(inReq) {
           const req = inReq as Request;
-          const sessionId = uuidOrNull(req.user?.session_id);
-
-          // Look up userId from the session so that subscribePlan can build the
-          // subscription topic without a side-effect DB call (required by grafast).
-          let userId: string | null = null;
-          if (sessionId && rootPgPool) {
-            const { rows } = await rootPgPool.query<{ user_id: string }>(
-              `SELECT user_id FROM app_private.sessions WHERE uuid = $1`,
-              [sessionId]
-            );
-            userId = rows[0]?.user_id ?? null;
-          }
-
           return {
             // The current session id
-            sessionId,
-
-            // The current user id (derived from session; used in subscribePlan)
-            userId,
+            sessionId: uuidOrNull(req.user?.session_id),
 
             // Needed so passport can write to the database
             rootPgPool,
