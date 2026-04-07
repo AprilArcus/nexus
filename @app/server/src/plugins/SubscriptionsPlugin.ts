@@ -3,15 +3,28 @@ import { jsonParse } from "@dataplan/json";
 import type { ExecutableStep } from "grafast";
 import { access, context, lambda, listen, SafeError } from "grafast";
 import { extendSchema, gql } from "graphile-utils";
+import type { Pool } from "pg";
 
 /*
  * PG NOTIFY events are sent via a channel, this function helps us determine
  * which channel to listen to for the currently logged in user by extracting
- * their `user_id` from the GraphQL context.
+ * their `user_id` from their session record.
  *
  * NOTE: channels are limited to 63 characters in length (this is a PostgreSQL
  * limitation).
  */
+async function userIdFromSession([sessionId, pool]: readonly [
+  string | null,
+  Pool,
+]): Promise<string | null> {
+  if (!sessionId || !pool) return null;
+  const { rows } = await pool.query<{ user_id: string }>(
+    `SELECT user_id FROM app_private.sessions WHERE uuid = $1`,
+    [sessionId]
+  );
+  return rows[0]?.user_id ?? null;
+}
+
 function currentUserTopicByUserId(userId: string | null) {
   if (userId) {
     return `graphql:user:${userId}`;
@@ -64,9 +77,14 @@ const SubscriptionsPlugin = extendSchema((build) => {
           currentUserUpdated: {
             subscribePlan() {
               const $pgSubscriber = context().get("pgSubscriber");
-              const $userId = context().get("userId") as ExecutableStep<
-                string | null
-              >;
+              const $sessionId = context().get("sessionId");
+              const $rootPgPool = context().get("rootPgPool");
+              // We have the users session ID, but to get their actual ID we
+              // need to ask the database.
+              const $userId = lambda(
+                [$sessionId, $rootPgPool],
+                userIdFromSession
+              ) as ExecutableStep<string | null>;
               const $topic = lambda($userId, currentUserTopicByUserId);
               return listen($pgSubscriber, $topic, (e) => e);
             },
