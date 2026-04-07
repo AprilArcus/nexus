@@ -1,7 +1,7 @@
 require("@app/config");
 
 if (!process.env.ROOT_URL) {
-  if (process.argv[1].endsWith("/depcheck")) {
+  if (process.argv[1].endsWith("/depcheck/bin/depcheck.js")) {
     /* NOOP */
   } else {
     throw new Error("ROOT_URL is a required envvar");
