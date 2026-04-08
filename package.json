@@ -42,10 +42,9 @@
     "graphql": "^16.9.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/plugin-syntax-import-assertions": "^7.20.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-typescript": "^7.21.0",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-typescript": "^7.28.5",
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "~6.13.2",
