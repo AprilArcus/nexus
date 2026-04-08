@@ -338,6 +338,7 @@ __metadata:
     chalk: ^5.2.0
     connect-pg-simple: ^8.0.0
     connect-redis: ^7.0.0
+    cross-env: ^7.0.3
     csurf: ^1.11.0
     express: ^4.20.0
     express-session: ^1.17.3
