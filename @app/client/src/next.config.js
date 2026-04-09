@@ -16,6 +16,48 @@ if (!process.env.ROOT_URL) {
     return {
       poweredByHeader: false,
       distDir: `../.next`,
+      // more @ant-design/* and rc-* may need to be added here depending on
+      // usage. `bundlePagesRouterDependencies` may be able to help with this
+      // config bloat in next.js 15
+      // https://nextjs.org/docs/15/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies
+      transpilePackages: [
+        "@ant-design/icons",
+        "@ant-design/icons-svg",
+        "rc-cascader",
+        "rc-checkbox",
+        "rc-collapse",
+        "rc-dialog",
+        "rc-drawer",
+        "rc-dropdown",
+        "rc-field-form",
+        "rc-image",
+        "rc-input",
+        "rc-input-number",
+        "rc-mentions",
+        "rc-menu",
+        "rc-motion",
+        "rc-notification",
+        "rc-overflow",
+        "rc-pagination",
+        "rc-picker",
+        "rc-progress",
+        "rc-rate",
+        "rc-resize-observer",
+        "rc-segmented",
+        "rc-select",
+        "rc-slider",
+        "rc-steps",
+        "rc-switch",
+        "rc-table",
+        "rc-tabs",
+        "rc-textarea",
+        "rc-tooltip",
+        "rc-tree",
+        "rc-tree-select",
+        "rc-upload",
+        "rc-util",
+        "rc-virtual-list",
+      ],
       trailingSlash: false,
       webpack(config, { webpack, dev, isServer }) {
         const makeSafe = (externals) => {
