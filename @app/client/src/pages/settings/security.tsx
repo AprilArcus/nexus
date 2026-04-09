@@ -97,7 +97,7 @@ const Settings_Security: NextPage = () => {
 
       try {
         await forgotPassword({ variables: { email } });
-      } catch (e: any) {
+      } catch {
         setResetError(resetError);
       }
       setResetInProgress(false);

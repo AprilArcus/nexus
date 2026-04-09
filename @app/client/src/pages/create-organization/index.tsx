@@ -44,7 +44,7 @@ const CreateOrganizationPage: NextPage = () => {
               },
             });
           }
-        } catch (e: any) {
+        } catch {
           /* NOOP */
         } finally {
           setSlugCheckIsValid(true);

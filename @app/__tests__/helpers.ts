@@ -75,7 +75,7 @@ export const asRoot = async <T>(
   } finally {
     try {
       await client.query("select set_config('role', $1, true)", [role]);
-    } catch (e: any) {
+    } catch {
       // Transaction was probably aborted, don't clobber the error
     }
   }

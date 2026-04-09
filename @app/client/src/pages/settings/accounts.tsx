@@ -52,7 +52,7 @@ function UnlinkAccountButton({ id }: { id: string }) {
     setDeleting(true);
     try {
       await mutate({ variables: { id } });
-    } catch (e: any) {
+    } catch {
       setDeleting(false);
     }
   }, [id, mutate]);
