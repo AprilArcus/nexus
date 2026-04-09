@@ -8,6 +8,8 @@
     "declarationDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "jsx": "react"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
