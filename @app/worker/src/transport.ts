@@ -25,7 +25,7 @@ export default function getTransport(): Promise<nodemailer.Transporter> {
         try {
           const testAccountJson = await readFile(etherealFilename, "utf8");
           account = JSON.parse(testAccountJson);
-        } catch (e: any) {
+        } catch {
           account = await nodemailer.createTestAccount();
           await writeFile(etherealFilename, JSON.stringify(account));
         }
