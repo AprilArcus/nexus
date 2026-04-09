@@ -18,7 +18,6 @@ import {
 } from "@app/lib";
 import type { InputRef } from "antd";
 import { Alert, Button, Form, Input } from "antd";
-import { useForm } from "antd/lib/form/Form";
 import { NextPage } from "next";
 import Link from "next/link";
 import Router from "next/router";
@@ -28,6 +27,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 interface LoginProps {
   next: string | null;
 }
+
+const { useForm } = Form;
 
 export function isSafe(nextUrl: string | null) {
   // Prevent protocol-relative URLs - test for `//foo.bar`

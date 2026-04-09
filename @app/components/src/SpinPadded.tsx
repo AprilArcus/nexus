@@ -1,4 +1,5 @@
-import Spin, { SpinProps } from "antd/lib/spin";
+import type { SpinProps } from "antd";
+import { Spin } from "antd";
 import React, { FC } from "react";
 
 export const SpinPadded: FC<SpinProps> = (props) => (

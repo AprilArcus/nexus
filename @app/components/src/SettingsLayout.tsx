@@ -1,5 +1,4 @@
 import { Layout, Menu, Typography } from "antd";
-import { TextProps } from "antd/lib/typography/Text";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import * as qs from "querystring";
@@ -16,6 +15,7 @@ import {
 import { StandardWidth } from "./StandardWidth";
 import { Warn } from "./Warn";
 
+type TextProps = React.ComponentProps<typeof Typography.Text>;
 const { Text } = Typography;
 const { Sider, Content } = Layout;
 
