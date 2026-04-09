@@ -17,7 +17,6 @@ import {
   tailFormItemLayout,
 } from "@app/lib";
 import { Alert, Button, Form, Input, InputRef, Tooltip } from "antd";
-import { useForm } from "antd/lib/form/Form";
 import { NextPage } from "next";
 import Router from "next/router";
 import { Store } from "rc-field-form/lib/interface";
@@ -30,6 +29,8 @@ import React, {
 } from "react";
 
 import { isSafe } from "./login";
+
+const { useForm } = Form;
 
 interface RegisterProps {
   next: string | null;

@@ -14,11 +14,12 @@ import {
 } from "@app/graphql";
 import { extractError, formItemLayout, tailFormItemLayout } from "@app/lib";
 import { Alert, Button, Form, Input, message } from "antd";
-import { useForm } from "antd/lib/form/Form";
 import { NextPage } from "next";
 import Router, { useRouter } from "next/router";
 import { Store } from "rc-field-form/lib/interface";
 import React, { FC, useCallback, useState } from "react";
+
+const { useForm } = Form;
 
 const OrganizationSettingsPage: NextPage = () => {
   const slug = useOrganizationSlug();

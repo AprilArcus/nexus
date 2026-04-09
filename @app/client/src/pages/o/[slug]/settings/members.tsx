@@ -34,6 +34,8 @@ import { useRouter } from "next/router";
 import { Store } from "rc-field-form/lib/interface";
 import React, { FC, useCallback, useState } from "react";
 
+const { useForm } = Form;
+
 const OrganizationSettingsPage: NextPage = () => {
   const slug = useOrganizationSlug();
   const [page, setPage] = useState(1);
@@ -105,7 +107,7 @@ const OrganizationSettingsPageInner: FC<OrganizationSettingsPageInnerProps> = (
 
   const [inviteToOrganization] = useInviteToOrganizationMutation();
   const [inviteInProgress, setInviteInProgress] = useState(false);
-  const [form] = Form.useForm();
+  const [form] = useForm();
   const handleInviteSubmit = useCallback(
     async (values: Store) => {
       if (inviteInProgress) {

@@ -1,5 +1,4 @@
-import { Button } from "antd";
-import { ButtonProps } from "antd/lib/button";
+import { Button, type ButtonProps } from "antd";
 import Link from "next/link";
 import React from "react";
 
