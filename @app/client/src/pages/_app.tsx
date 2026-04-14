@@ -3,21 +3,12 @@ import "nprogress/nprogress.css";
 import "../styles.css";
 
 import { ApolloClient, ApolloProvider } from "@apollo/client";
-import { withApollo } from "@app/lib";
+import { setGraphileApp, withApollo } from "@app/lib";
 import { ConfigProvider, notification } from "antd";
 import App from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import * as React from "react";
-
-declare global {
-  interface Window {
-    __GRAPHILE_APP__: {
-      ROOT_URL?: string;
-      T_AND_C_URL?: string;
-    };
-  }
-}
 
 NProgress.configure({
   showSpinner: false,
@@ -29,10 +20,12 @@ if (typeof window !== "undefined") {
     throw new Error("Cannot read from __NEXT_DATA__ element");
   }
   const data = JSON.parse(nextDataEl.textContent);
-  window.__GRAPHILE_APP__ = {
-    ROOT_URL: data.query.ROOT_URL,
-    T_AND_C_URL: data.query.T_AND_C_URL,
-  };
+  if (!data.props?.graphileApp) {
+    throw new Error(
+      "Cannot find property props.graphileApp in __NEXT_DATA__. Was it returned correctly from MyApp.getInitialProps()?"
+    );
+  }
+  setGraphileApp(data.props.graphileApp);
 
   Router.events.on("routeChangeStart", () => {
     NProgress.start();
@@ -65,7 +58,9 @@ class MyApp extends App<{ apollo: ApolloClient<any> }> {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    const graphileApp = ctx.req?.graphileApp;
+
+    return { pageProps, graphileApp };
   }
 
   render() {

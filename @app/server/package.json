@@ -48,6 +48,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@app/lib": "0.0.0",
     "@types/node": "^18.14.2",
     "cross-env": "^7.0.3",
     "graphql": "^16.9.0",
