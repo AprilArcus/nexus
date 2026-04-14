@@ -22,8 +22,10 @@ export default async function installSSR(app: Express) {
     // Don't specify 'conf' key
 
     // Trick Next.js into adding its upgrade handler here, so we can extract
-    // it. Calling `getUpgradeHandler()` is insufficient because that doesn't
-    // handle the assets.
+    // it. Calling `getUpgradeHandler()` is insufficient here: in Next
+    // custom-server mode it follows the inherited server handleUpgrade path,
+    // while dev HMR uses the upgrade handler returned by getRequestHandlers()
+    // and wired onto httpServer.
     httpServer: fakeHttpServer,
   });
   const handlerPromise = (async () => {
@@ -46,23 +48,27 @@ export default async function installSSR(app: Express) {
     handler(req, res);
   });
 
-  // Now handle websockets
-  if (!(nextApp as any).getServer) {
-    console.warn(
-      `Our Next.js workaround for getting the upgrade handler without giving Next.js dominion over all websockets might no longer work - nextApp.getServer (private API) is no more.`
-    );
-  } else {
-    await (nextApp as any).getServer();
-  }
-  const nextJsUpgradeHandler = fakeHttpServer.listeners("upgrade")[0] as any;
-  if (nextJsUpgradeHandler) {
-    const upgradeHandlers = getUpgradeHandlers(app);
-    upgradeHandlers.push({
-      name: "Next.js",
-      check(req) {
-        return req.url?.includes("/_next/") ?? false;
-      },
-      upgrade: nextJsUpgradeHandler,
-    });
-  }
+  // Next.js wires its custom-server websocket listener lazily the first time
+  // its request handler runs. Register our dispatcher entry now, then read the
+  // listener from the fake server when a matching upgrade arrives.
+  let nextJsUpgradeHandler: ReturnType<typeof fakeHttpServer.listeners>[number];
+  const upgradeHandlers = getUpgradeHandlers(app);
+  upgradeHandlers.push({
+    name: "Next.js",
+    check(req) {
+      if (req.url == null) return false;
+      return req.url.includes("/_next/");
+    },
+    upgrade(req, socket, head) {
+      nextJsUpgradeHandler ??= fakeHttpServer.listeners("upgrade")[0];
+      if (typeof nextJsUpgradeHandler === "function") {
+        nextJsUpgradeHandler(req, socket, head);
+      } else {
+        console.error(
+          `Next.js websocket upgrade handler was not installed before an upgrade request for ${req.url ?? "<unknown URL>"}.`
+        );
+        socket.destroy();
+      }
+    },
+  });
 }
