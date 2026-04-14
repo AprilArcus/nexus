@@ -1,7 +1,9 @@
+import type { GraphileApp } from "@app/lib" with {
+  "resolution-mode": "import",
+};
 import { Express } from "express";
 import { createServer } from "http";
 import next from "next";
-import { parse } from "url";
 
 import { getUpgradeHandlers } from "../app";
 
@@ -35,17 +37,13 @@ export default async function installSSR(app: Express) {
   });
   app.get("*", async (req, res) => {
     const handler = await handlerPromise;
-    const parsedUrl = parse(req.url, true);
-    handler(req, res, {
-      ...parsedUrl,
-      query: {
-        ...parsedUrl.query,
-        CSRF_TOKEN: req.csrfToken(),
-        // See 'next.config.js':
-        ROOT_URL: process.env.ROOT_URL || "http://localhost:5678",
-        T_AND_C_URL: process.env.T_AND_C_URL,
-      },
-    });
+    const graphileApp: GraphileApp = {
+      CSRF_TOKEN: req.csrfToken(),
+      ROOT_URL: process.env.ROOT_URL || "http://localhost:5678",
+      ...(process.env.T_AND_C_URL && { T_AND_C_URL: process.env.T_AND_C_URL }),
+    };
+    (req as any).graphileApp = graphileApp;
+    handler(req, res);
   });
 
   // Now handle websockets

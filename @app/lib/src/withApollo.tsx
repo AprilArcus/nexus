@@ -15,6 +15,7 @@ import { Client, createClient } from "graphql-ws";
 import { withApollo as withApolloBase } from "next-with-apollo";
 
 import { GraphileApolloLink } from "./GraphileApolloLink";
+import { getGraphileApp } from "./graphileApp";
 
 let wsClient: Client | null = null;
 
@@ -98,12 +99,10 @@ function makeClientSideLink(ROOT_URL: string) {
     throw new Error("Must only makeClientSideLink once");
   }
   _rootURL = ROOT_URL;
-  const nextDataEl = document.getElementById("__NEXT_DATA__");
-  if (!nextDataEl || !nextDataEl.textContent) {
-    throw new Error("Cannot read from __NEXT_DATA__ element");
+  const { CSRF_TOKEN } = getGraphileApp();
+  if (!CSRF_TOKEN) {
+    throw new Error("Cannot read CSRF_TOKEN");
   }
-  const data = JSON.parse(nextDataEl.textContent);
-  const CSRF_TOKEN = data.query.CSRF_TOKEN;
   const httpLink = new HttpLink({
     uri: `${ROOT_URL}/graphql`,
     credentials: "same-origin",
