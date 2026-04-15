@@ -88,10 +88,12 @@ export function SettingsLayout({
         ) : (
           <Layout style={{ minHeight: contentMinHeight }} hasSider>
             <Sider>
-              <Menu selectedKeys={[href]}>
-                {(Object.keys(pages) as (keyof typeof pages)[]).map(
-                  (pageHref) => (
-                    <Menu.Item key={pageHref}>
+              <Menu
+                selectedKeys={[href]}
+                items={(Object.keys(pages) as (keyof typeof pages)[]).map(
+                  (pageHref) => ({
+                    key: pageHref,
+                    label: (
                       <Link href={pageHref} data-cy={pages[pageHref].cy}>
                         <Warn
                           okay={
@@ -105,10 +107,10 @@ export function SettingsLayout({
                           </Text>
                         </Warn>
                       </Link>
-                    </Menu.Item>
-                  )
+                    ),
+                  })
                 )}
-              </Menu>
+              />
             </Sider>
             <Content>
               <StandardWidth>{children}</StandardWidth>

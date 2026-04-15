@@ -7,7 +7,7 @@ import {
   useCurrentUserUpdatedSubscription,
   useLogoutMutation,
 } from "@app/graphql";
-import { Avatar, Col, Dropdown, Layout, Menu, Row, Typography } from "antd";
+import { Avatar, Col, Dropdown, Layout, Row, Typography } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
@@ -202,11 +202,15 @@ export function SharedLayout({
           <Col span={6} style={{ textAlign: "right" }}>
             {data && data.currentUser ? (
               <Dropdown
-                overlay={
-                  <Menu>
-                    {data.currentUser.organizationMemberships.nodes.map(
-                      ({ organization, isOwner }) => (
-                        <Menu.Item key={organization?.id}>
+                menu={{
+                  items: [
+                    ...data.currentUser.organizationMemberships.nodes.map(
+                      ({ organization, isOwner }) => ({
+                        key:
+                          organization?.id ??
+                          organization?.slug ??
+                          "_unknown-organization",
+                        label: (
                           <Link
                             href={`/o/[slug]`}
                             as={`/o/${organization?.slug}`}
@@ -221,27 +225,36 @@ export function SharedLayout({
                               ""
                             )}
                           </Link>
-                        </Menu.Item>
-                      )
-                    )}
-                    <Menu.Item key="_create-organization">
-                      <Link
-                        href="/create-organization"
-                        data-cy="layout-link-create-organization"
-                      >
-                        Create organization
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key="_settings">
-                      <Link href="/settings" data-cy="layout-link-settings">
-                        <Warn okay={data.currentUser.isVerified}>Settings</Warn>
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key="_logout">
-                      <a onClick={handleLogout}>Logout</a>
-                    </Menu.Item>
-                  </Menu>
-                }
+                        ),
+                      })
+                    ),
+                    {
+                      key: "_create-organization",
+                      label: (
+                        <Link
+                          href="/create-organization"
+                          data-cy="layout-link-create-organization"
+                        >
+                          Create organization
+                        </Link>
+                      ),
+                    },
+                    {
+                      key: "_settings",
+                      label: (
+                        <Link href="/settings" data-cy="layout-link-settings">
+                          <Warn okay={data.currentUser.isVerified}>
+                            Settings
+                          </Warn>
+                        </Link>
+                      ),
+                    },
+                    {
+                      key: "_logout",
+                      label: <a onClick={handleLogout}>Logout</a>,
+                    },
+                  ],
+                }}
               >
                 <span
                   data-cy="layout-dropdown-user"
