@@ -5,6 +5,7 @@ import type { GraphileApp } from "@app/lib" with {
 import { type Express } from "express";
 import { createServer } from "http";
 import next from "next";
+import { type PostGraphileInstance } from "postgraphile";
 
 import { getUpgradeHandlers } from "../app";
 
@@ -38,14 +39,20 @@ export default async function installSSR(app: Express) {
     console.error(e);
     process.exit(1);
   });
+
+  const pgl = app.get("pgl") as PostGraphileInstance;
+
   app.get("*", async (req, res) => {
-    const handler = await handlerPromise;
     const graphileApp: GraphileApp = {
       CSRF_TOKEN: req.csrfToken(),
       ROOT_URL: process.env.ROOT_URL || "http://localhost:5678",
       ...(process.env.T_AND_C_URL && { T_AND_C_URL: process.env.T_AND_C_URL }),
     };
+
     (req as any).graphileApp = graphileApp;
+    (req as any).pgl = pgl;
+
+    const handler = await handlerPromise;
     handler(req, res);
   });
 
