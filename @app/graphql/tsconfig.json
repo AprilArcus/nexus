@@ -8,7 +8,9 @@
     "declarationDir": ".",
     "lib": ["es2018", "esnext.asynciterable"],
     "target": "es2018",
-    "jsx": "react"
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
   "include": ["index.tsx"]
 }
