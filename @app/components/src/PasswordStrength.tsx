@@ -23,30 +23,30 @@ export function PasswordStrength({
   isDirty = false,
   isFocussed = false,
 }: PasswordStrengthProps) {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Auto-display popup
     if (isFocussed && isDirty && suggestions.length > 0) {
-      setVisible(true);
+      setOpen(true);
     }
     // Auto-hide when there's no suggestions
     if (suggestions.length === 0) {
-      setVisible(false);
+      setOpen(false);
     }
   }, [isDirty, isFocussed, suggestions]);
 
   // Blur on password field focus loss
   useEffect(() => {
     if (!isFocussed) {
-      setVisible(false);
+      setOpen(false);
     }
   }, [isFocussed]);
 
   if (!isDirty) return null;
 
-  const handleVisibleChange = (visible: boolean) => {
-    setVisible(visible);
+  const handleOpenChange = (open: boolean) => {
+    setOpen(open);
   };
 
   const content = (
@@ -71,8 +71,8 @@ export function PasswordStrength({
           title={"Password Hints"}
           content={content}
           trigger="click"
-          visible={visible}
-          onVisibleChange={handleVisibleChange}
+          open={open}
+          onOpenChange={handleOpenChange}
         >
           <div
             style={{
