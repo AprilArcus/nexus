@@ -178,9 +178,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:3.4.17":
-  version: 3.4.17
-  resolution: "@apollo/client@npm:3.4.17"
+"@apollo/client@npm:3.5.10":
+  version: 3.5.10
+  resolution: "@apollo/client@npm:3.5.10"
   dependencies:
     "@graphql-typed-document-node/core": ^3.0.0
     "@wry/context": ^0.6.0
@@ -191,19 +191,22 @@ __metadata:
     optimism: ^0.16.1
     prop-types: ^15.7.2
     symbol-observable: ^4.0.0
-    ts-invariant: ^0.9.0
+    ts-invariant: ^0.9.4
     tslib: ^2.3.0
-    zen-observable-ts: ~1.1.0
+    zen-observable-ts: ^1.2.0
   peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-ws: ^5.5.5
     react: ^16.8.0 || ^17.0.0
     subscriptions-transport-ws: ^0.9.0 || ^0.11.0
   peerDependenciesMeta:
+    graphql-ws:
+      optional: true
     react:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 01624eceab4e71bfcc6fa6fc53ca413c17208a2651d61ebced039c6461da8e590bfef909f994dc23b94803ac49f67d4bd72057e8e33100c37da3ef9566db76d4
+  checksum: 0228b9de82e1f25b4d63439944f81675579db2fc33eead06c62c603f3d48e8b6dae7d41232a754b03b3b8290b13ca8cdcea9962948cc1991ccefe4d16d942e7f
   languageName: node
   linkType: hard
 
@@ -213,7 +216,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": ^5.0.1
     "@ant-design/pro-layout": ^7.8.3
-    "@apollo/client": 3.4.17
+    "@apollo/client": 3.5.10
     "@app/components": 0.0.0
     "@app/config": 0.0.0
     "@app/graphql": 0.0.0
@@ -245,7 +248,7 @@ __metadata:
   resolution: "@app/components@workspace:@app/components"
   dependencies:
     "@ant-design/icons": ^5.0.1
-    "@apollo/client": 3.4.17
+    "@apollo/client": 3.5.10
     "@app/graphql": 0.0.0
     antd: 5.3.3
     cross-env: ^7.0.3
@@ -295,7 +298,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@app/graphql@workspace:@app/graphql"
   dependencies:
-    "@apollo/client": 3.4.17
+    "@apollo/client": 3.5.10
     "@graphql-codegen/add": ^4.0.1
     "@graphql-codegen/cli": ^3.2.1
     "@graphql-codegen/typescript": ^3.0.1
@@ -313,7 +316,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@app/lib@workspace:@app/lib"
   dependencies:
-    "@apollo/client": 3.4.17
+    "@apollo/client": 3.5.10
     "@types/express": ^4.17.17
     "@types/zxcvbn": ^4.4.1
     cross-env: ^7.0.3
@@ -4912,13 +4915,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 55d27ae5d346ea260e40121675c24e112ef0247649073848e5d4e03182713ae4ec8142b98f61a1c6cbe7d3b72fa99bbadb65d8b01873e5e605cdc30f1ff70ef2
-  languageName: node
-  linkType: hard
-
-"@types/zen-observable@npm:0.8.3":
-  version: 0.8.3
-  resolution: "@types/zen-observable@npm:0.8.3"
-  checksum: 08c88354abcf03a2176a2ec32e07da1f25fdad94fbc2f419bea53d77deb04ad4759518b4fe3fc695e61065dd4bdf7c8bd26b5211a6cd5be2233872806bdee48d
   languageName: node
   linkType: hard
 
@@ -17195,7 +17191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-invariant@npm:^0.9.0":
+"ts-invariant@npm:^0.9.4":
   version: 0.9.4
   resolution: "ts-invariant@npm:0.9.4"
   dependencies:
@@ -18401,13 +18397,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zen-observable-ts@npm:~1.1.0":
-  version: 1.1.0
-  resolution: "zen-observable-ts@npm:1.1.0"
+"zen-observable-ts@npm:^1.2.0":
+  version: 1.2.5
+  resolution: "zen-observable-ts@npm:1.2.5"
   dependencies:
-    "@types/zen-observable": 0.8.3
     zen-observable: 0.8.15
-  checksum: 1772727f2c96af228c52b008260e1e4ae512782abc9d4f4a78d1a61913aa3b55ae672ad343ecf6895d9b968b5e3f4a41b5a317702cdc6cd5f6f93bc0dacf8103
+  checksum: 3b707b7a0239a9bc40f73ba71b27733a689a957c1f364fabb9fa9cbd7d04b7c2faf0d517bf17004e3ed3f4330ac613e84c0d32313e450ddaa046f3350af44541
   languageName: node
   linkType: hard
 
