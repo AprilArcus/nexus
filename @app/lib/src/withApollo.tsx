@@ -12,7 +12,7 @@ import { onError } from "@apollo/client/link/error";
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import { getOperationAST, GraphQLError, print } from "graphql";
 import { Client, createClient } from "graphql-ws";
-import withApolloBase from "next-with-apollo";
+import { withApollo as withApolloBase } from "next-with-apollo";
 
 import { GraphileApolloLink } from "./GraphileApolloLink";
 
