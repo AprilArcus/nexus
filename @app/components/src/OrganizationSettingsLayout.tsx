@@ -64,21 +64,25 @@ export function OrganizationSettingsLayout({
   return (
     <Layout style={{ minHeight: contentMinHeight }} hasSider>
       <Sider>
-        <Menu selectedKeys={[href]}>
-          {(Object.keys(pages) as (keyof typeof pages)[]).map((pageHref) => (
-            <Menu.Item key={pageHref}>
-              <Link
-                href={pageHref}
-                data-cy={pages[pageHref].cy}
-                as={pageHref.replace("[slug]", organization.slug)}
-              >
-                <Text {...pages[pageHref].titleProps}>
-                  {pages[pageHref].title}
-                </Text>
-              </Link>
-            </Menu.Item>
-          ))}
-        </Menu>
+        <Menu
+          selectedKeys={[href]}
+          items={(Object.keys(pages) as (keyof typeof pages)[]).map(
+            (pageHref) => ({
+              key: pageHref,
+              label: (
+                <Link
+                  href={pageHref}
+                  data-cy={pages[pageHref].cy}
+                  as={pageHref.replace("[slug]", organization.slug)}
+                >
+                  <Text {...pages[pageHref].titleProps}>
+                    {pages[pageHref].title}
+                  </Text>
+                </Link>
+              ),
+            })
+          )}
+        />
       </Sider>
       <Content>
         <StandardWidth>{children}</StandardWidth>
