@@ -18,8 +18,9 @@ various places in the app, for example:
 ## Environmental variables
 
 In order to support multiplatform and docker development in the same repository,
-we use `node -r @app/config/env path/to/code` to run various parts of the
-project. `node -r` requires a specific module before running the main script; in
-this case we're requiring [@app/config/env.js](./env.js) which sources the
-settings from `.env` in the root folder and then builds some derivative
-environmental variables from them. This is a fairly advanced technique.
+we use `node --require @app/config/env path/to/code` to run various parts of the
+project. `node --require` requires a specific module before running the main
+script; in this case we're requiring [@app/config/env.js](./env.js) which
+sources the settings from `.env` in the root folder and then builds some
+derivative environmental variables from them. This is a fairly advanced
+technique.
