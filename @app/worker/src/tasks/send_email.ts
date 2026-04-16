@@ -4,7 +4,7 @@ import {
   projectName,
 } from "@app/config";
 import { promises as fsp } from "fs";
-import { Task } from "graphile-worker";
+import { type Task } from "graphile-worker";
 import { htmlToText } from "html-to-text";
 import { template as lodashTemplate } from "lodash";
 import mjml2html from "mjml";

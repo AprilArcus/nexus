@@ -1,4 +1,4 @@
-import { PoolClient } from "pg";
+import { type PoolClient } from "pg";
 
 import { login } from "../../app_private/functions/login.test";
 import { createUsers, getJobs, withRootDb } from "../../helpers";

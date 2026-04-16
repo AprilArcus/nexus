@@ -9,12 +9,12 @@ import {
 } from "@app/components";
 import {
   useCurrentUserAuthenticationsQuery,
-  UserAuthentication,
+  type UserAuthentication,
   useSharedQuery,
   useUnlinkUserAuthenticationMutation,
 } from "@app/graphql";
 import { Avatar, Card, List, Modal, Spin } from "antd";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import React, { useCallback, useState } from "react";
 
 const AUTH_NAME_LOOKUP: Record<string, string | undefined> = {

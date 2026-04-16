@@ -1,10 +1,10 @@
 // TODO: import GraphilePro from "@graphile/pro"; // Requires license key
 import { PgSimplifyInflectionPreset } from "@graphile/simplify-inflection";
-import { Request } from "express";
+import { type Request } from "express";
 import { resolve } from "path";
-import { Pool } from "pg";
+import { type Pool } from "pg";
 import { makePgService } from "postgraphile/adaptors/pg";
-import type {} from "postgraphile/grafserv/express/v4";
+import {} from "postgraphile/grafserv/express/v4";
 import { NodePlugin } from "postgraphile/graphile-build";
 import PostGraphileAmberPreset from "postgraphile/presets/amber";
 import { makeV4Preset } from "postgraphile/presets/v4";

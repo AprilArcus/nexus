@@ -1,5 +1,5 @@
-import { ApolloError } from "@apollo/client";
-import { GraphQLError } from "graphql";
+import { type ApolloError } from "@apollo/client";
+import { type GraphQLError } from "graphql";
 
 export function extractError(error: null): null;
 export function extractError(error: Error): Error;

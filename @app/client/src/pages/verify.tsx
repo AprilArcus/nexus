@@ -2,7 +2,7 @@ import { Col, Row, SharedLayout } from "@app/components";
 import { useSharedQuery, useVerifyEmailMutation } from "@app/graphql";
 import { Alert } from "antd";
 import get from "lodash/get";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import React, { useEffect } from "react";
 
 interface IProps {

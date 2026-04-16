@@ -1,4 +1,4 @@
-import { OrganizationPage_OrganizationFragment } from "@app/graphql";
+import { type OrganizationPage_OrganizationFragment } from "@app/graphql";
 import { Layout, Menu, Typography } from "antd";
 import Link from "next/link";
 import React, { useMemo } from "react";

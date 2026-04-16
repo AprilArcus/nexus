@@ -1,6 +1,6 @@
 import { Layout, Menu, Typography } from "antd";
 import Link from "next/link";
-import { NextRouter, useRouter } from "next/router";
+import { type NextRouter, useRouter } from "next/router";
 import * as qs from "querystring";
 import React from "react";
 
@@ -9,8 +9,8 @@ import {
   AuthRestrict,
   contentMinHeight,
   SharedLayout,
-  SharedLayoutChildProps,
-  SharedLayoutProps,
+  type SharedLayoutChildProps,
+  type SharedLayoutProps,
 } from "./SharedLayout";
 import { StandardWidth } from "./StandardWidth";
 import { Warn } from "./Warn";

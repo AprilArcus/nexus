@@ -77,6 +77,29 @@ module.exports = {
         "@graphql-eslint/variables-in-allowed-position": "error",
       },
     },
+    {
+      files: ["**/*.{ts,tsx}"],
+      rules: {
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          {
+            prefer: "type-imports",
+            fixStyle: "inline-type-imports",
+          },
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+            args: "after-used",
+            ignoreRestSiblings: true,
+          },
+        ],
+        "import/consistent-type-specifier-style": ["error", "prefer-inline"],
+        "import/no-duplicates": ["error", { "prefer-inline": true }],
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -111,15 +134,6 @@ module.exports = {
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-        args: "after-used",
-        ignoreRestSiblings: true,
-      },
-    ],
     "no-unused-expressions": [
       "error",
       {

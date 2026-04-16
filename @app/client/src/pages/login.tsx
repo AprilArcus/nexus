@@ -1,5 +1,5 @@
 import { LockOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { ApolloError, useApolloClient } from "@apollo/client";
+import { type ApolloError, useApolloClient } from "@apollo/client";
 import {
   AuthRestrict,
   ButtonLink,
@@ -7,7 +7,7 @@ import {
   Redirect,
   Row,
   SharedLayout,
-  SharedLayoutChildProps,
+  type SharedLayoutChildProps,
   SocialLoginOptions,
 } from "@app/components";
 import { useLoginMutation, useSharedQuery } from "@app/graphql";
@@ -16,12 +16,11 @@ import {
   getCodeFromError,
   resetWebsocketConnection,
 } from "@app/lib";
-import type { InputRef } from "antd";
-import { Alert, Button, Form, Input } from "antd";
-import { NextPage } from "next";
+import { Alert, Button, Form, Input, type InputRef } from "antd";
+import { type NextPage } from "next";
 import Link from "next/link";
 import Router from "next/router";
-import { Store } from "rc-field-form/lib/interface";
+import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 interface LoginProps {

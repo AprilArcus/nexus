@@ -1,4 +1,4 @@
-import { QueryResult } from "@apollo/client";
+import { type QueryResult } from "@apollo/client";
 import {
   AuthRestrict,
   ButtonLink,
@@ -8,18 +8,18 @@ import {
   SpinPadded,
 } from "@app/components";
 import {
-  InvitationDetailQuery,
-  InvitationDetailQueryVariables,
-  SharedLayout_UserFragment,
+  type InvitationDetailQuery,
+  type InvitationDetailQueryVariables,
+  type SharedLayout_UserFragment,
   useAcceptOrganizationInviteMutation,
   useInvitationDetailQuery,
 } from "@app/graphql";
 import { getCodeFromError } from "@app/lib";
 import { Button, Col, Result, Row, Skeleton } from "antd";
-import { NextPage } from "next";
-import Router, { NextRouter, useRouter } from "next/router";
+import { type NextPage } from "next";
+import Router, { type NextRouter, useRouter } from "next/router";
 import * as qs from "querystring";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 
 interface IProps {
   id: string | null;

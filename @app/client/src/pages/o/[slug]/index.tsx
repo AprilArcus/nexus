@@ -6,12 +6,12 @@ import {
   useOrganizationSlug,
 } from "@app/components";
 import {
-  OrganizationPage_OrganizationFragment,
+  type OrganizationPage_OrganizationFragment,
   useOrganizationPageQuery,
 } from "@app/graphql";
 import { Col, Empty, Row } from "antd";
-import { NextPage } from "next";
-import React, { FC } from "react";
+import { type NextPage } from "next";
+import React, { type FC } from "react";
 
 const OrganizationPage: NextPage = () => {
   const slug = useOrganizationSlug();

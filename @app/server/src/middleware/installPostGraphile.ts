@@ -1,6 +1,6 @@
-import { Express, Request, Response } from "express";
+import { type Express, type Request, type Response } from "express";
 import { ServerResponse } from "http";
-import { OutgoingHttpHeaders } from "http2";
+import { type OutgoingHttpHeaders } from "http2";
 import { postgraphile } from "postgraphile";
 import { grafserv } from "postgraphile/grafserv/express/v4";
 

@@ -1,16 +1,16 @@
 import {
   ApolloLink,
-  FetchResult,
-  NextLink,
+  type FetchResult,
+  type NextLink,
   Observable,
-  Operation,
+  type Operation,
 } from "@apollo/client";
-import { Request, Response } from "express";
+import { type Request, type Response } from "express";
 import { execute, hookArgs, isAsyncIterable } from "grafast";
 import { getOperationAST } from "graphql";
-import type { PostGraphileInstance } from "postgraphile";
+import { type PostGraphileInstance } from "postgraphile";
 // augments Grafast.RequestContext with expressv4
-import type {} from "postgraphile/grafserv/express/v4";
+import {} from "postgraphile/grafserv/express/v4";
 
 export interface GraphileApolloLinkInterface {
   /** The request object. */

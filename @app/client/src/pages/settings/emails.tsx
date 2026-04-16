@@ -1,5 +1,5 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import {
   ErrorAlert,
   P,
@@ -8,7 +8,7 @@ import {
   Strong,
 } from "@app/components";
 import {
-  EmailsForm_UserEmailFragment,
+  type EmailsForm_UserEmailFragment,
   useAddEmailMutation,
   useDeleteEmailMutation,
   useMakeEmailPrimaryMutation,
@@ -22,8 +22,8 @@ import {
   tailFormItemLayout,
 } from "@app/lib";
 import { Alert, Avatar, Button, Form, Input, List } from "antd";
-import { NextPage } from "next";
-import { Store } from "rc-field-form/lib/interface";
+import { type NextPage } from "next";
+import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
 
 const { useForm } = Form;

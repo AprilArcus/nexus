@@ -1,4 +1,4 @@
-import { Express, RequestHandler } from "express";
+import { type Express, type RequestHandler } from "express";
 
 import { getWebsocketMiddlewares } from "../app";
 

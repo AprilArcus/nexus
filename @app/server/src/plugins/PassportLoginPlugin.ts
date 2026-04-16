@@ -1,7 +1,5 @@
-import type { ExecutableStep } from "grafast";
-import { access } from "grafast";
-import type { ObjectResolver } from "graphile-utils";
-import { extendSchema, gql } from "graphile-utils";
+import { access, type ExecutableStep } from "grafast";
+import { extendSchema, gql, type ObjectResolver } from "graphile-utils";
 
 import { ERROR_MESSAGE_OVERRIDES } from "../utils/handleErrors";
 

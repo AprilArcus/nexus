@@ -1,4 +1,4 @@
-import { Express } from "express";
+import { type Express } from "express";
 import { get } from "lodash";
 import passport from "passport";
 import { Strategy as GitHubStrategy } from "passport-github2";

@@ -1,6 +1,6 @@
-import { getTasks, runTaskListOnce, SharedOptions } from "graphile-worker";
+import { getTasks, runTaskListOnce, type SharedOptions } from "graphile-worker";
 import { mapValues } from "lodash";
-import { PoolClient } from "pg";
+import { type PoolClient } from "pg";
 
 import {
   asRoot,
@@ -9,7 +9,7 @@ import {
   deleteTestData,
   poolFromUrl,
   TEST_DATABASE_URL,
-  User,
+  type User,
 } from "../../__tests__/helpers";
 /*
  * We need to inform jest that these files depend on changes to the database,

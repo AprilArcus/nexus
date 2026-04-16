@@ -3,7 +3,7 @@ import * as React from "react";
 const { Text, Title, Paragraph } = Typography;
 import { SharedLayout } from "@app/components";
 import { useSharedQuery } from "@app/graphql";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 
 // Convenience helper
 const Li = ({ children, ...props }: any) => (

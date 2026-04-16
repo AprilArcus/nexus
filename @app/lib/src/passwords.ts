@@ -1,4 +1,4 @@
-import { Store } from "rc-field-form/lib/interface";
+import { type Store } from "rc-field-form/lib/interface";
 import zxcvbn from "zxcvbn";
 
 interface ExpectedProps {

@@ -2,7 +2,7 @@ import "antd/dist/reset.css";
 import "nprogress/nprogress.css";
 import "../styles.css";
 
-import { ApolloClient, ApolloProvider } from "@apollo/client";
+import { type ApolloClient, ApolloProvider } from "@apollo/client";
 import { setGraphileApp, withApollo } from "@app/lib";
 import { ConfigProvider, notification } from "antd";
 import App from "next/app";

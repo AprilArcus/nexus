@@ -1,5 +1,5 @@
-import { QueryResult } from "@apollo/client";
-import { OrganizationPage_QueryFragment } from "@app/graphql";
+import { type QueryResult } from "@apollo/client";
+import { type OrganizationPage_QueryFragment } from "@app/graphql";
 import { Col, Row } from "antd";
 import { useRouter } from "next/router";
 import React from "react";

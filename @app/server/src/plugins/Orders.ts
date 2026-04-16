@@ -1,5 +1,5 @@
 import { addPgTableOrderBy, orderByAscDesc } from "graphile-utils";
-import type { SQL } from "pg-sql2";
+import { type SQL } from "pg-sql2";
 
 export default addPgTableOrderBy(
   { schemaName: "app_public", tableName: "organization_memberships" },

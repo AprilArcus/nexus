@@ -1,4 +1,4 @@
-import { Express } from "express";
+import { type Express } from "express";
 
 export default (app: Express) => {
   if (!process.env.ROOT_URL || !process.env.ROOT_URL.startsWith("https://")) {

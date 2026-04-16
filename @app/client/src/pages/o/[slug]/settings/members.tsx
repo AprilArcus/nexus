@@ -8,9 +8,9 @@ import {
   useOrganizationSlug,
 } from "@app/components";
 import {
-  OrganizationMembers_MembershipFragment,
-  OrganizationMembers_OrganizationFragment,
-  SharedLayout_UserFragment,
+  type OrganizationMembers_MembershipFragment,
+  type OrganizationMembers_OrganizationFragment,
+  type SharedLayout_UserFragment,
   useInviteToOrganizationMutation,
   useOrganizationMembersQuery,
   useRemoveFromOrganizationMutation,
@@ -29,10 +29,10 @@ import {
   Typography,
 } from "antd";
 import Text from "antd/lib/typography/Text";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import { useRouter } from "next/router";
-import { Store } from "rc-field-form/lib/interface";
-import React, { FC, useCallback, useState } from "react";
+import { type Store } from "rc-field-form/lib/interface";
+import React, { type FC, useCallback, useState } from "react";
 
 const { useForm } = Form;
 

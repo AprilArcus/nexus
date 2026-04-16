@@ -9,9 +9,9 @@ import { useResetPasswordMutation, useSharedQuery } from "@app/graphql";
 import { formItemLayout, setPasswordInfo, tailFormItemLayout } from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
 import get from "lodash/get";
-import { NextPage } from "next";
-import { Store } from "rc-field-form/lib/interface";
-import React, { FocusEvent, useCallback, useState } from "react";
+import { type NextPage } from "next";
+import { type Store } from "rc-field-form/lib/interface";
+import React, { type FocusEvent, useCallback, useState } from "react";
 
 const { useForm } = Form;
 
