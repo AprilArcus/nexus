@@ -1,10 +1,10 @@
+import { StandardWidth } from "@app/components";
 import { type OrganizationPage_OrganizationFragment } from "@app/graphql";
 import { Layout, Menu, Typography } from "antd";
 import Link from "next/link";
 import React, { useMemo } from "react";
 
 import { contentMinHeight } from "./SharedLayout";
-import { StandardWidth } from "./StandardWidth";
 
 type TextProps = React.ComponentProps<typeof Typography.Text>;
 const { Text } = Typography;

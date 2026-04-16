@@ -1,10 +1,4 @@
-import {
-  AuthRestrict,
-  Col,
-  PasswordStrength,
-  Row,
-  SharedLayout,
-} from "@app/components";
+import { Col, PasswordStrength, Row } from "@app/components";
 import { useResetPasswordMutation, useSharedQuery } from "@app/graphql";
 import { formItemLayout, setPasswordInfo, tailFormItemLayout } from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
@@ -12,6 +6,8 @@ import get from "lodash/get";
 import { type NextPage } from "next";
 import { type Store } from "rc-field-form/lib/interface";
 import React, { type FocusEvent, useCallback, useState } from "react";
+
+import { AuthRestrict, SharedLayout } from "../layouts/SharedLayout";
 
 const { useForm } = Form;
 

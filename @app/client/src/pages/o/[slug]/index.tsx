@@ -1,7 +1,6 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import {
   ButtonLink,
-  SharedLayout,
   useOrganizationLoading,
   useOrganizationSlug,
 } from "@app/components";
@@ -12,6 +11,8 @@ import {
 import { Col, Empty, Row } from "antd";
 import { type NextPage } from "next";
 import React, { type FC } from "react";
+
+import { SharedLayout } from "../../../layouts/SharedLayout";
 
 const OrganizationPage: NextPage = () => {
   const slug = useOrganizationSlug();

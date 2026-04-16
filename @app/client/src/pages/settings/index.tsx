@@ -1,6 +1,6 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import { type ApolloError } from "@apollo/client";
-import { ErrorAlert, Redirect, SettingsLayout } from "@app/components";
+import { ErrorAlert } from "@app/components";
 import {
   type ProfileSettingsForm_UserFragment,
   useSettingsProfileQuery,
@@ -16,6 +16,9 @@ import { Alert, Button, Form, Input } from "antd";
 import { type NextPage } from "next";
 import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
+
+import { Redirect } from "../../layouts/Redirect";
+import { SettingsLayout } from "../../layouts/SettingsLayout";
 
 const { useForm } = Form;
 

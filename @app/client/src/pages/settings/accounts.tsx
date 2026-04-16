@@ -2,7 +2,6 @@ import { GithubFilled } from "@ant-design/icons";
 import { PageHeader } from "@ant-design/pro-layout";
 import {
   ErrorAlert,
-  SettingsLayout,
   SocialLoginOptions,
   SpinPadded,
   Strong,
@@ -16,6 +15,8 @@ import {
 import { Avatar, Card, List, Modal, Spin } from "antd";
 import { type NextPage } from "next";
 import React, { useCallback, useState } from "react";
+
+import { SettingsLayout } from "../../layouts/SettingsLayout";
 
 const AUTH_NAME_LOOKUP: Record<string, string | undefined> = {
   github: "GitHub",

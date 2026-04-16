@@ -1,12 +1,5 @@
 import { type QueryResult } from "@apollo/client";
-import {
-  AuthRestrict,
-  ButtonLink,
-  ErrorAlert,
-  Redirect,
-  SharedLayout,
-  SpinPadded,
-} from "@app/components";
+import { ButtonLink, ErrorAlert, SpinPadded } from "@app/components";
 import {
   type InvitationDetailQuery,
   type InvitationDetailQueryVariables,
@@ -20,6 +13,9 @@ import { type NextPage } from "next";
 import Router, { type NextRouter, useRouter } from "next/router";
 import * as qs from "querystring";
 import React, { type FC } from "react";
+
+import { Redirect } from "../../layouts/Redirect";
+import { AuthRestrict, SharedLayout } from "../../layouts/SharedLayout";
 
 interface IProps {
   id: string | null;

@@ -1,11 +1,6 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import { type ApolloError } from "@apollo/client";
-import {
-  ErrorAlert,
-  P,
-  PasswordStrength,
-  SettingsLayout,
-} from "@app/components";
+import { ErrorAlert, P, PasswordStrength } from "@app/components";
 import {
   useChangePasswordMutation,
   useForgotPasswordMutation,
@@ -24,6 +19,8 @@ import { type NextPage } from "next";
 import Link from "next/link";
 import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
+
+import { SettingsLayout } from "../../layouts/SettingsLayout";
 
 const { useForm } = Form;
 
