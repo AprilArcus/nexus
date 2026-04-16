@@ -10,7 +10,7 @@ import { execute, hookArgs, isAsyncIterable } from "grafast";
 import { getOperationAST } from "graphql";
 import { type PostGraphileInstance } from "postgraphile";
 // augments Grafast.RequestContext with expressv4
-import {} from "postgraphile/grafserv/express/v4";
+import type {} from "postgraphile/grafserv/express/v4";
 
 export interface GraphileApolloLinkInterface {
   /** The request object. */

@@ -7,7 +7,6 @@ import {
   formItemLayout,
   getCodeFromError,
   getExceptionFromError,
-  resetWebsocketConnection,
   setPasswordInfo,
   tailFormItemLayout,
 } from "@app/lib";
@@ -25,6 +24,7 @@ import React, {
 
 import { Redirect } from "../layouts/Redirect";
 import { AuthRestrict, SharedLayout } from "../layouts/SharedLayout";
+import { resetWebsocketConnection } from "../lib/withApollo";
 import { isSafe } from "./login";
 
 const { useForm } = Form;
