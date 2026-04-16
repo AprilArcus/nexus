@@ -1,7 +1,9 @@
 node_modules
 **/dist
+@app/*/types
 /data/schema.graphql
 /data/schema.sql
 /@app/graphql/index.*
+/@app/graphql/src
 /@app/client/.next
 .next

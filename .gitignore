@@ -2,11 +2,13 @@
 .next
 node_modules
 dist
+@app/*/types/**
 /heroku-setup
 /yarn-error.log
 /@app/e2e/cypress/videos
 /@app/e2e/cypress/screenshots
 /@app/graphql/index.*
+/@app/graphql/src/index.*
 .agignore
 *.tsbuildinfo
 .ethereal

@@ -1,8 +1,14 @@
 {
   "name": "@app/components",
   "version": "0.0.0",
-  "main": "dist/index.js",
   "type": "module",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.tsx"
+    }
+  },
   "scripts": {
     "build": "tsc -b",
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=\"${NODE_OPTIONS:-} --require @app/config/env\" jest"

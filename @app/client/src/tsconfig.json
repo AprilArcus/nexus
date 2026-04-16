@@ -3,28 +3,18 @@
   "compilerOptions": {
     "composite": false,
     "incremental": false,
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2024",
+    "lib": ["es2024", "dom", "dom.iterable"],
     "noEmit": true,
     "esModuleInterop": true,
     "declaration": false,
     "declarationMap": false,
     "isolatedModules": true,
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "references": [
     {
       "path": "../../config"

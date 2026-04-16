@@ -2,23 +2,21 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
+    "emitDeclarationOnly": true,
     "rootDir": "src",
-    "outDir": "dist",
-    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
-    "declarationDir": "dist",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "target": "es5",
+    "declarationDir": "types",
+    "declarationMap": false,
+    "tsBuildInfoFile": "types/tsconfig.tsbuildinfo",
+    "target": "es2024",
+    "lib": ["es2024", "dom", "dom.iterable"],
+    "jsx": "preserve",
     "module": "esnext",
-    "moduleResolution": "bundler",
-    "jsx": "react"
+    "moduleResolution": "bundler"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
       "path": "../graphql"
-    },
-    {
-      "path": "../lib"
     }
   ]
 }

@@ -21,6 +21,9 @@ if (!process.env.ROOT_URL) {
       // config bloat in next.js 15
       // https://nextjs.org/docs/15/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies
       transpilePackages: [
+        "@app/components",
+        "@app/graphql",
+        "@app/lib",
         "@ant-design/icons",
         "@ant-design/icons-svg",
         "rc-cascader",
@@ -107,8 +110,8 @@ if (!process.env.ROOT_URL) {
               : [
                   // Don't try and bundle Grafast on the client for heaven's sake
                   new webpack.NormalModuleReplacementPlugin(
-                    /GraphileApolloLink.js/,
-                    "./GraphileApolloLink.client.js"
+                    /GraphileApolloLink$/,
+                    "./GraphileApolloLink.client"
                   ),
                 ]),
           ],
