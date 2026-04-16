@@ -1,3 +1,4 @@
+import { StandardWidth, Warn } from "@app/components";
 import { Layout, Menu, Typography } from "antd";
 import Link from "next/link";
 import { type NextRouter, useRouter } from "next/router";
@@ -12,8 +13,6 @@ import {
   type SharedLayoutChildProps,
   type SharedLayoutProps,
 } from "./SharedLayout";
-import { StandardWidth } from "./StandardWidth";
-import { Warn } from "./Warn";
 
 type TextProps = React.ComponentProps<typeof Typography.Text>;
 const { Text } = Typography;

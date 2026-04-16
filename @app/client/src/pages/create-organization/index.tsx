@@ -1,6 +1,5 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import { type ApolloError } from "@apollo/client";
-import { AuthRestrict, Redirect, SharedLayout } from "@app/components";
 import {
   type CreatedOrganizationFragment,
   useCreateOrganizationMutation,
@@ -19,6 +18,9 @@ import { type NextPage } from "next";
 import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import slugify from "slugify";
+
+import { Redirect } from "../../layouts/Redirect";
+import { AuthRestrict, SharedLayout } from "../../layouts/SharedLayout";
 
 const { useForm } = Form;
 const { Text } = Typography;

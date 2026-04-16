@@ -1,11 +1,8 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import { type ApolloError } from "@apollo/client";
 import {
-  AuthRestrict,
   ErrorAlert,
-  OrganizationSettingsLayout,
   P,
-  SharedLayout,
   useOrganizationLoading,
   useOrganizationSlug,
 } from "@app/components";
@@ -19,6 +16,9 @@ import { Alert, Button, message, Popconfirm } from "antd";
 import { type NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { type FC, useCallback, useState } from "react";
+
+import { OrganizationSettingsLayout } from "../../../../layouts/OrganizationSettingsLayout";
+import { AuthRestrict, SharedLayout } from "../../../../layouts/SharedLayout";
 
 const OrganizationSettingsPage: NextPage = () => {
   const slug = useOrganizationSlug();

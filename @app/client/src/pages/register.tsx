@@ -1,11 +1,6 @@
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { type ApolloError, useApolloClient } from "@apollo/client";
-import {
-  AuthRestrict,
-  PasswordStrength,
-  Redirect,
-  SharedLayout,
-} from "@app/components";
+import { PasswordStrength } from "@app/components";
 import { useRegisterMutation, useSharedQuery } from "@app/graphql";
 import {
   extractError,
@@ -28,6 +23,8 @@ import React, {
   useState,
 } from "react";
 
+import { Redirect } from "../layouts/Redirect";
+import { AuthRestrict, SharedLayout } from "../layouts/SharedLayout";
 import { isSafe } from "./login";
 
 const { useForm } = Form;

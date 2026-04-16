@@ -1,6 +1,6 @@
 import { PageHeader } from "@ant-design/pro-layout";
 import { type ApolloError } from "@apollo/client";
-import { ErrorAlert, P, SettingsLayout } from "@app/components";
+import { ErrorAlert, P } from "@app/components";
 import {
   useConfirmAccountDeletionMutation,
   useRequestAccountDeletionMutation,
@@ -11,6 +11,8 @@ import { Alert, Button, Modal, Typography } from "antd";
 import { type NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useCallback, useState } from "react";
+
+import { SettingsLayout } from "../../layouts/SettingsLayout";
 
 const { Text } = Typography;
 
