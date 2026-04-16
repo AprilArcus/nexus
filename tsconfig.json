@@ -8,8 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
-    "target": "esnext",
+    "lib": ["es2024", "dom"],
+    "target": "es2024",
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
@@ -42,6 +42,7 @@
     { "path": "@app/config" },
     { "path": "@app/components" },
     { "path": "@app/graphql" },
+    { "path": "@app/lib" },
     { "path": "@app/server" },
     { "path": "@app/worker" }
   ]

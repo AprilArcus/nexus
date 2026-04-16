@@ -3,8 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.tsx"
+    }
+  },
   "scripts": {
     "build": "yarn codegen && tsc -b",
     "watch": "yarn codegen --watch",

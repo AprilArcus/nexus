@@ -6,8 +6,8 @@
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
     "declarationDir": "dist",
-    "lib": ["es2018", "esnext.asynciterable"],
-    "target": "es2018"
+    "lib": ["es2024"],
+    "target": "es2024"
   },
   "include": ["src"],
   "references": [{ "path": "../config" }, { "path": "../lib" }],
