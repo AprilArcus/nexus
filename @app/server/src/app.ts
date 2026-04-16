@@ -1,10 +1,10 @@
-import express, { Express, NextFunction } from "express";
-import { IncomingMessage, Server, ServerResponse } from "http";
-import { Duplex } from "stream";
+import express, { type Express, type NextFunction } from "express";
+import { type IncomingMessage, type Server, type ServerResponse } from "http";
+import { type Duplex } from "stream";
 
 import { cloudflareIps } from "./cloudflare";
 import * as middleware from "./middleware";
-import { makeShutdownActions, ShutdownAction } from "./shutdownActions";
+import { makeShutdownActions, type ShutdownAction } from "./shutdownActions";
 import { sanitizeEnv } from "./utils";
 
 // Server may not always be supplied, e.g. where mounting on a sub-route

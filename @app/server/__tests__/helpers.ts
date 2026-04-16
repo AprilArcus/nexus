@@ -1,14 +1,14 @@
 import { makeWithPgClientViaPgClientAlreadyInTransaction } from "@dataplan/pg/adaptors/pg";
 import { execute, hookArgs } from "grafast";
 import {
-  ExecutionArgs,
-  ExecutionResult,
-  GraphQLSchema,
+  type ExecutionArgs,
+  type ExecutionResult,
+  type GraphQLSchema,
   parse,
   validate,
 } from "graphql";
-import { Pool, PoolClient } from "pg";
-import { postgraphile, PostGraphileInstance } from "postgraphile";
+import { Pool, type PoolClient } from "pg";
+import { postgraphile, type PostGraphileInstance } from "postgraphile";
 
 import {
   createSession,

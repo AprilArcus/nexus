@@ -1,5 +1,5 @@
 import { SyncOutlined } from "@ant-design/icons";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import { Alert, Button, Result, Typography } from "antd";
 import React from "react";
 

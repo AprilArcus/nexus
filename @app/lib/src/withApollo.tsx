@@ -1,17 +1,17 @@
 import {
   ApolloClient,
   ApolloLink,
-  FetchResult,
+  type FetchResult,
   HttpLink,
   InMemoryCache,
   Observable,
-  Operation,
+  type Operation,
   split,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { getDataFromTree } from "@apollo/client/react/ssr";
-import { getOperationAST, GraphQLError, print } from "graphql";
-import { Client, createClient } from "graphql-ws";
+import { getOperationAST, type GraphQLError, print } from "graphql";
+import { type Client, createClient } from "graphql-ws";
 import { withApollo as withApolloBase } from "next-with-apollo";
 
 import { GraphileApolloLink } from "./GraphileApolloLink";

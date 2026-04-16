@@ -1,4 +1,4 @@
-import { PoolClient } from "pg";
+import { type PoolClient } from "pg";
 
 import { asRoot, becomeUser, withRootDb, withUserDb } from "../../helpers";
 

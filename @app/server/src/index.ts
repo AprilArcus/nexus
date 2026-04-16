@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-import { createServer, IncomingMessage } from "http";
-import { Duplex } from "stream";
+import { createServer, type IncomingMessage } from "http";
+import { type Duplex } from "stream";
 
 import { getShutdownActions, getUpgradeHandlers, makeApp } from "./app";
 

@@ -1,4 +1,5 @@
-import { Express } from "express";
+import { type Express } from "express";
+// eslint-disable-next-line import/consistent-type-specifier-style, import/no-duplicates
 import type { HelmetOptions } from "helmet" with {
   "resolution-mode": "import",
 };

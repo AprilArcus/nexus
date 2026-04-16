@@ -1,5 +1,5 @@
-import { Express } from "express";
-import { makeWorkerUtils, WorkerUtils } from "graphile-worker";
+import { type Express } from "express";
+import { makeWorkerUtils, type WorkerUtils } from "graphile-worker";
 
 import { getRootPgPool } from "./installDatabasePools";
 

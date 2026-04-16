@@ -1,6 +1,6 @@
-import { Task } from "graphile-worker";
+import { type Task } from "graphile-worker";
 
-import { SendEmailPayload } from "./send_email";
+import { type SendEmailPayload } from "./send_email";
 
 interface UserForgotPasswordPayload {
   /**

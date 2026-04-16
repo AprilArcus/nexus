@@ -1,9 +1,13 @@
 import { CrownOutlined, DownOutlined } from "@ant-design/icons";
-import { ApolloError, QueryResult, useApolloClient } from "@apollo/client";
+import {
+  type ApolloError,
+  type QueryResult,
+  useApolloClient,
+} from "@apollo/client";
 import { companyName, projectName } from "@app/config";
 import {
-  SharedLayout_QueryFragment,
-  SharedLayout_UserFragment,
+  type SharedLayout_QueryFragment,
+  type SharedLayout_UserFragment,
   useCurrentUserUpdatedSubscription,
   useLogoutMutation,
 } from "@app/graphql";

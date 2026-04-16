@@ -1,4 +1,4 @@
-import { PoolClient } from "pg";
+import { type PoolClient } from "pg";
 
 import { snapshotSafe, withRootDb } from "../../helpers";
 import { reallyCreateUser } from "./really_create_user.test";

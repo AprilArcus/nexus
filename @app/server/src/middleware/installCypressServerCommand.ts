@@ -1,6 +1,11 @@
 import { urlencoded } from "body-parser";
-import { Express, Request, RequestHandler, Response } from "express";
-import { Pool } from "pg";
+import {
+  type Express,
+  type Request,
+  type RequestHandler,
+  type Response,
+} from "express";
+import { type Pool } from "pg";
 
 import { getRootPgPool } from "./installDatabasePools";
 

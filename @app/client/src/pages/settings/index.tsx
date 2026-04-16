@@ -1,8 +1,8 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import { ErrorAlert, Redirect, SettingsLayout } from "@app/components";
 import {
-  ProfileSettingsForm_UserFragment,
+  type ProfileSettingsForm_UserFragment,
   useSettingsProfileQuery,
   useUpdateUserMutation,
 } from "@app/graphql";
@@ -13,8 +13,8 @@ import {
   tailFormItemLayout,
 } from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
-import { NextPage } from "next";
-import { Store } from "rc-field-form/lib/interface";
+import { type NextPage } from "next";
+import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
 
 const { useForm } = Form;

@@ -1,5 +1,5 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import {
   AuthRestrict,
   ErrorAlert,
@@ -10,15 +10,15 @@ import {
   useOrganizationSlug,
 } from "@app/components";
 import {
-  OrganizationPage_OrganizationFragment,
-  SharedLayout_UserFragment,
+  type OrganizationPage_OrganizationFragment,
+  type SharedLayout_UserFragment,
   useDeleteOrganizationMutation,
   useOrganizationPageQuery,
 } from "@app/graphql";
 import { Alert, Button, message, Popconfirm } from "antd";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import { useRouter } from "next/router";
-import React, { FC, useCallback, useState } from "react";
+import React, { type FC, useCallback, useState } from "react";
 
 const OrganizationSettingsPage: NextPage = () => {
   const slug = useOrganizationSlug();

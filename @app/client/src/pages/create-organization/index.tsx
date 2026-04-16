@@ -1,8 +1,8 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import { AuthRestrict, Redirect, SharedLayout } from "@app/components";
 import {
-  CreatedOrganizationFragment,
+  type CreatedOrganizationFragment,
   useCreateOrganizationMutation,
   useOrganizationBySlugLazyQuery,
   useSharedQuery,
@@ -15,8 +15,8 @@ import {
 } from "@app/lib";
 import { Alert, Button, Col, Form, Input, Row, Spin, Typography } from "antd";
 import { debounce } from "lodash";
-import { NextPage } from "next";
-import { Store } from "rc-field-form/lib/interface";
+import { type NextPage } from "next";
+import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import slugify from "slugify";
 

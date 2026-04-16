@@ -1,5 +1,5 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { ApolloError } from "@apollo/client";
+import { type ApolloError } from "@apollo/client";
 import {
   ErrorAlert,
   P,
@@ -20,9 +20,9 @@ import {
   tailFormItemLayout,
 } from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import Link from "next/link";
-import { Store } from "rc-field-form/lib/interface";
+import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
 
 const { useForm } = Form;

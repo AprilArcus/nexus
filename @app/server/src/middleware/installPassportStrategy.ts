@@ -1,4 +1,4 @@
-import { Express, Request, RequestHandler } from "express";
+import { type Express, type Request, type RequestHandler } from "express";
 import passport from "passport";
 
 import { getRootPgPool } from "./installDatabasePools";

@@ -8,16 +8,16 @@ import {
   useOrganizationSlug,
 } from "@app/components";
 import {
-  OrganizationPage_OrganizationFragment,
+  type OrganizationPage_OrganizationFragment,
   useOrganizationPageQuery,
   useUpdateOrganizationMutation,
 } from "@app/graphql";
 import { extractError, formItemLayout, tailFormItemLayout } from "@app/lib";
 import { Alert, Button, Form, Input, message } from "antd";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import Router, { useRouter } from "next/router";
-import { Store } from "rc-field-form/lib/interface";
-import React, { FC, useCallback, useState } from "react";
+import { type Store } from "rc-field-form/lib/interface";
+import React, { type FC, useCallback, useState } from "react";
 
 const { useForm } = Form;
 

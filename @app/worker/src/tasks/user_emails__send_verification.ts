@@ -1,6 +1,6 @@
-import { Task } from "graphile-worker";
+import { type Task } from "graphile-worker";
 
-import { SendEmailPayload } from "./send_email";
+import { type SendEmailPayload } from "./send_email";
 
 // At least 3 minutes between resending email verifications
 const MIN_INTERVAL = 1000 * 60 * 3;

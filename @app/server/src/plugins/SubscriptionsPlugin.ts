@@ -1,9 +1,14 @@
-import type { JSONValue } from "@dataplan/json";
-import { jsonParse } from "@dataplan/json";
-import type { ExecutableStep } from "grafast";
-import { access, context, lambda, listen, SafeError } from "grafast";
+import { jsonParse, type JSONValue } from "@dataplan/json";
+import {
+  access,
+  context,
+  type ExecutableStep,
+  lambda,
+  listen,
+  SafeError,
+} from "grafast";
 import { extendSchema, gql } from "graphile-utils";
-import type { Pool } from "pg";
+import { type Pool } from "pg";
 
 /*
  * PG NOTIFY events are sent via a channel, this function helps us determine

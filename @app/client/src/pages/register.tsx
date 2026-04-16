@@ -1,5 +1,5 @@
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { ApolloError, useApolloClient } from "@apollo/client";
+import { type ApolloError, useApolloClient } from "@apollo/client";
 import {
   AuthRestrict,
   PasswordStrength,
@@ -16,12 +16,12 @@ import {
   setPasswordInfo,
   tailFormItemLayout,
 } from "@app/lib";
-import { Alert, Button, Form, Input, InputRef, Tooltip } from "antd";
-import { NextPage } from "next";
+import { Alert, Button, Form, Input, type InputRef, Tooltip } from "antd";
+import { type NextPage } from "next";
 import Router from "next/router";
-import { Store } from "rc-field-form/lib/interface";
+import { type Store } from "rc-field-form/lib/interface";
 import React, {
-  FocusEvent,
+  type FocusEvent,
   useCallback,
   useEffect,
   useRef,

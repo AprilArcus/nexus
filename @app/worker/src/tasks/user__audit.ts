@@ -1,7 +1,7 @@
 import { projectName } from "@app/config";
-import { Task } from "graphile-worker";
+import { type Task } from "graphile-worker";
 
-import { SendEmailPayload } from "./send_email";
+import { type SendEmailPayload } from "./send_email";
 
 /* For tracking account actions */
 
