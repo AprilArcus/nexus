@@ -23,10 +23,10 @@
       "path": "../../graphql"
     },
     {
-      "path": "../../components"
+      "path": "../../common"
     },
     {
-      "path": "../../lib"
+      "path": "../../components"
     }
   ]
 }

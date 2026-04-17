@@ -1,21 +1,7 @@
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { type ApolloError, useApolloClient } from "@apollo/client";
-import {
-  AuthRestrict,
-  PasswordStrength,
-  Redirect,
-  SharedLayout,
-} from "@app/components";
+import { PasswordStrength } from "@app/components";
 import { useRegisterMutation, useSharedQuery } from "@app/graphql";
-import {
-  extractError,
-  formItemLayout,
-  getCodeFromError,
-  getExceptionFromError,
-  resetWebsocketConnection,
-  setPasswordInfo,
-  tailFormItemLayout,
-} from "@app/lib";
 import { Alert, Button, Form, Input, type InputRef, Tooltip } from "antd";
 import { type NextPage } from "next";
 import Router from "next/router";
@@ -28,6 +14,16 @@ import React, {
   useState,
 } from "react";
 
+import { Redirect } from "../layouts/Redirect";
+import { AuthRestrict, SharedLayout } from "../layouts/SharedLayout";
+import {
+  extractError,
+  getCodeFromError,
+  getExceptionFromError,
+} from "../lib/errors";
+import { formItemLayout, tailFormItemLayout } from "../lib/forms";
+import { setPasswordInfo } from "../lib/passwords";
+import { resetWebsocketConnection } from "../lib/withApollo";
 import { isSafe } from "./login";
 
 const { useForm } = Form;

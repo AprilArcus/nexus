@@ -10,7 +10,7 @@
     "target": "es2024"
   },
   "include": ["src"],
-  "references": [{ "path": "../config" }, { "path": "../lib" }],
+  "references": [{ "path": "../common" }, { "path": "../config" }],
   "ts-node": {
     "compilerOptions": {
       "rootDir": null

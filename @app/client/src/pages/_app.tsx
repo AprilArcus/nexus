@@ -3,12 +3,14 @@ import "nprogress/nprogress.css";
 import "../styles.css";
 
 import { type ApolloClient, ApolloProvider } from "@apollo/client";
-import { setGraphileApp, withApollo } from "@app/lib";
 import { ConfigProvider, notification } from "antd";
 import App from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import * as React from "react";
+
+import { setGraphileApp } from "../lib/graphileApp";
+import { withApollo } from "../lib/withApollo";
 
 NProgress.configure({
   showSpinner: false,

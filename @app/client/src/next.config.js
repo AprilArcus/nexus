@@ -21,9 +21,9 @@ if (!process.env.ROOT_URL) {
       // config bloat in next.js 15
       // https://nextjs.org/docs/15/pages/api-reference/config/next-config-js/bundlePagesRouterDependencies
       transpilePackages: [
+        "@app/common",
         "@app/components",
         "@app/graphql",
-        "@app/lib",
         "@ant-design/icons",
         "@ant-design/icons-svg",
         "rc-cascader",

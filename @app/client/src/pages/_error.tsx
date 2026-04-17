@@ -1,15 +1,11 @@
-import {
-  ErrorOccurred,
-  FourOhFour,
-  H2,
-  P,
-  SharedLayout,
-} from "@app/components";
+import { ErrorOccurred, FourOhFour, H2, P } from "@app/components";
 import { useSharedQuery } from "@app/graphql";
 import { Alert, Col, Row } from "antd";
 import { type NextPage } from "next";
 import Link from "next/link";
 import * as React from "react";
+
+import { SharedLayout } from "../layouts/SharedLayout";
 
 const isDev = process.env.NODE_ENV !== "production";
 

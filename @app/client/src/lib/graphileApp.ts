@@ -1,8 +1,4 @@
-export interface GraphileApp {
-  CSRF_TOKEN: string;
-  ROOT_URL: string;
-  T_AND_C_URL?: string;
-}
+import { type GraphileApp } from "@app/common";
 
 type GraphileAppWindow = Window & {
   __GRAPHILE_APP__?: GraphileApp;

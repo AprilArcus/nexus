@@ -4,6 +4,7 @@ import {
   type QueryResult,
   useApolloClient,
 } from "@apollo/client";
+import { ErrorAlert, H3, StandardWidth, Warn } from "@app/components";
 import { companyName, projectName } from "@app/config";
 import {
   type SharedLayout_QueryFragment,
@@ -18,22 +19,10 @@ import Router, { useRouter } from "next/router";
 import * as React from "react";
 import { useCallback } from "react";
 
-import { ErrorAlert, H3, StandardWidth, Warn } from ".";
 import { Redirect } from "./Redirect";
 
 const { Header, Content, Footer } = Layout;
 const { Text } = Typography;
-/*
- * For some reason, possibly related to the interaction between
- * `babel-plugin-import` and https://github.com/babel/babel/pull/9766, we can't
- * directly export these values, but if we reference them and re-export then we
- * can.
- *
- * TODO: change back to `export { Row, Col, Link }` when this issue is fixed.
- */
-const _babelHackRow = Row;
-const _babelHackCol = Col;
-export { _babelHackCol as Col, Link, _babelHackRow as Row };
 
 export const contentMinHeight = "calc(100vh - 64px - 70px)";
 

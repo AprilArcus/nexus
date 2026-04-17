@@ -1,23 +1,21 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import {
-  AuthRestrict,
-  OrganizationSettingsLayout,
-  Redirect,
-  SharedLayout,
-  useOrganizationLoading,
-  useOrganizationSlug,
-} from "@app/components";
+import { useOrganizationLoading, useOrganizationSlug } from "@app/components";
 import {
   type OrganizationPage_OrganizationFragment,
   useOrganizationPageQuery,
   useUpdateOrganizationMutation,
 } from "@app/graphql";
-import { extractError, formItemLayout, tailFormItemLayout } from "@app/lib";
 import { Alert, Button, Form, Input, message } from "antd";
 import { type NextPage } from "next";
 import Router, { useRouter } from "next/router";
 import { type Store } from "rc-field-form/lib/interface";
 import React, { type FC, useCallback, useState } from "react";
+
+import { OrganizationSettingsLayout } from "../../../../layouts/OrganizationSettingsLayout";
+import { Redirect } from "../../../../layouts/Redirect";
+import { AuthRestrict, SharedLayout } from "../../../../layouts/SharedLayout";
+import { extractError } from "../../../../lib/errors";
+import { formItemLayout, tailFormItemLayout } from "../../../../lib/forms";
 
 const { useForm } = Form;
 
