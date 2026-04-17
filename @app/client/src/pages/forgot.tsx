@@ -1,7 +1,6 @@
 import { UserOutlined } from "@ant-design/icons";
 import { type ApolloError } from "@apollo/client";
 import { useForgotPasswordMutation, useSharedQuery } from "@app/graphql";
-import { extractError, getCodeFromError } from "@app/lib";
 import { Alert, Button, Form, Input, type InputRef } from "antd";
 import { type NextPage } from "next";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { AuthRestrict, SharedLayout } from "../layouts/SharedLayout";
+import { extractError, getCodeFromError } from "../lib/errors";
 
 const { useForm } = Form;
 

@@ -1,4 +1,4 @@
-import { type GraphileApp } from "@app/lib";
+import { type GraphileApp } from "@app/common";
 
 type GraphileAppWindow = Window & {
   __GRAPHILE_APP__?: GraphileApp;

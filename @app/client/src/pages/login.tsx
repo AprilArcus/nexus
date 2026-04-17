@@ -2,7 +2,6 @@ import { LockOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import { type ApolloError, useApolloClient } from "@apollo/client";
 import { ButtonLink, Col, Row, SocialLoginOptions } from "@app/components";
 import { useLoginMutation, useSharedQuery } from "@app/graphql";
-import { extractError, getCodeFromError } from "@app/lib";
 import { Alert, Button, Form, Input, type InputRef } from "antd";
 import { type NextPage } from "next";
 import Link from "next/link";
@@ -16,6 +15,7 @@ import {
   SharedLayout,
   type SharedLayoutChildProps,
 } from "../layouts/SharedLayout";
+import { extractError, getCodeFromError } from "../lib/errors";
 import { resetWebsocketConnection } from "../lib/withApollo";
 
 interface LoginProps {

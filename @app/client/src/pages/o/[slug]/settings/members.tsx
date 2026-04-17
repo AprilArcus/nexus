@@ -10,7 +10,6 @@ import {
   useTransferOrganizationBillingContactMutation,
   useTransferOrganizationOwnershipMutation,
 } from "@app/graphql";
-import { formItemLayout, tailFormItemLayout } from "@app/lib";
 import {
   Button,
   Card,
@@ -30,6 +29,7 @@ import React, { type FC, useCallback, useState } from "react";
 import { OrganizationSettingsLayout } from "../../../../layouts/OrganizationSettingsLayout";
 import { Redirect } from "../../../../layouts/Redirect";
 import { AuthRestrict, SharedLayout } from "../../../../layouts/SharedLayout";
+import { formItemLayout, tailFormItemLayout } from "../../../../lib/forms";
 
 const { useForm } = Form;
 

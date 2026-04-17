@@ -6,13 +6,13 @@ import {
   useRequestAccountDeletionMutation,
   useSharedQuery,
 } from "@app/graphql";
-import { getCodeFromError } from "@app/lib";
 import { Alert, Button, Modal, Typography } from "antd";
 import { type NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useCallback, useState } from "react";
 
 import { SettingsLayout } from "../../layouts/SettingsLayout";
+import { getCodeFromError } from "../../lib/errors";
 
 const { Text } = Typography;
 

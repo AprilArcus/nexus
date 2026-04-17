@@ -6,12 +6,6 @@ import {
   useSettingsProfileQuery,
   useUpdateUserMutation,
 } from "@app/graphql";
-import {
-  extractError,
-  formItemLayout,
-  getCodeFromError,
-  tailFormItemLayout,
-} from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
 import { type NextPage } from "next";
 import { type Store } from "rc-field-form/lib/interface";
@@ -19,6 +13,8 @@ import React, { useCallback, useState } from "react";
 
 import { Redirect } from "../../layouts/Redirect";
 import { SettingsLayout } from "../../layouts/SettingsLayout";
+import { extractError, getCodeFromError } from "../../lib/errors";
+import { formItemLayout, tailFormItemLayout } from "../../lib/forms";
 
 const { useForm } = Form;
 

@@ -6,12 +6,6 @@ import {
   useOrganizationBySlugLazyQuery,
   useSharedQuery,
 } from "@app/graphql";
-import {
-  extractError,
-  formItemLayout,
-  getCodeFromError,
-  tailFormItemLayout,
-} from "@app/lib";
 import { Alert, Button, Col, Form, Input, Row, Spin, Typography } from "antd";
 import { debounce } from "lodash";
 import { type NextPage } from "next";
@@ -21,6 +15,8 @@ import slugify from "slugify";
 
 import { Redirect } from "../../layouts/Redirect";
 import { AuthRestrict, SharedLayout } from "../../layouts/SharedLayout";
+import { extractError, getCodeFromError } from "../../lib/errors";
+import { formItemLayout, tailFormItemLayout } from "../../lib/forms";
 
 const { useForm } = Form;
 const { Text } = Typography;

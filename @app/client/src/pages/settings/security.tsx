@@ -7,13 +7,6 @@ import {
   useSettingsPasswordQuery,
   useSharedQuery,
 } from "@app/graphql";
-import {
-  extractError,
-  formItemLayout,
-  getCodeFromError,
-  setPasswordInfo,
-  tailFormItemLayout,
-} from "@app/lib";
 import { Alert, Button, Form, Input } from "antd";
 import { type NextPage } from "next";
 import Link from "next/link";
@@ -21,6 +14,9 @@ import { type Store } from "rc-field-form/lib/interface";
 import React, { useCallback, useState } from "react";
 
 import { SettingsLayout } from "../../layouts/SettingsLayout";
+import { extractError, getCodeFromError } from "../../lib/errors";
+import { formItemLayout, tailFormItemLayout } from "../../lib/forms";
+import { setPasswordInfo } from "../../lib/passwords";
 
 const { useForm } = Form;
 

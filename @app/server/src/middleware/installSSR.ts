@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/consistent-type-specifier-style, import/no-duplicates
-import type { GraphileApp } from "@app/lib" with {
+import type { GraphileApp } from "@app/common" with {
   "resolution-mode": "import",
 };
 import { type Express } from "express";

@@ -7,7 +7,6 @@ import {
   useAcceptOrganizationInviteMutation,
   useInvitationDetailQuery,
 } from "@app/graphql";
-import { getCodeFromError } from "@app/lib";
 import { Button, Col, Result, Row, Skeleton } from "antd";
 import { type NextPage } from "next";
 import Router, { type NextRouter, useRouter } from "next/router";
@@ -16,6 +15,7 @@ import React, { type FC } from "react";
 
 import { Redirect } from "../../layouts/Redirect";
 import { AuthRestrict, SharedLayout } from "../../layouts/SharedLayout";
+import { getCodeFromError } from "../../lib/errors";
 
 interface IProps {
   id: string | null;
